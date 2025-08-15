@@ -29,7 +29,9 @@ export async function POST(req: NextRequest) {
           if (copyRes && copyRes.ok) {
             const j = await copyRes.json();
             localPath = j.path;
-            await saveAsset(e.imageOriginal, localPath);
+            if (localPath) {
+              await saveAsset(e.imageOriginal, localPath);
+            }
           }
         }
       }

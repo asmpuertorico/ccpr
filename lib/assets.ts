@@ -16,14 +16,14 @@ async function getSql() {
 
 export async function findAssetByOriginal(originalUrl: string): Promise<{ id: string; local_path: string } | null> {
   const sql = await getSql();
-  const rows = await sql<{ id: string; local_path: string }[]>`select id::text, local_path from assets where original_url = ${originalUrl}`;
+  const rows = await sql`select id::text, local_path from assets where original_url = ${originalUrl}` as { id: string; local_path: string }[];
   return rows[0] || null;
 }
 
 export async function saveAsset(originalUrl: string, localPath: string): Promise<{ id: string }> {
   const sql = await getSql();
-  const rows = await sql<{ id: string }[]>`insert into assets (original_url, local_path) values (${originalUrl}, ${localPath})
-    on conflict (original_url) do update set local_path = excluded.local_path returning id::text`;
+  const rows = await sql`insert into assets (original_url, local_path) values (${originalUrl}, ${localPath})
+    on conflict (original_url) do update set local_path = excluded.local_path returning id::text` as { id: string }[];
   return rows[0];
 }
 

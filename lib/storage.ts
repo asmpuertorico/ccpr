@@ -32,7 +32,7 @@ async function ensureSeeded() {
     if (POSTGRES_URL) {
       try {
         const sql = neon(POSTGRES_URL);
-        const rows = await sql<EventItem[]>`select id::text, name, to_char(date,'YYYY-MM-DD') as date, to_char(time,'HH24:MI') as time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc`;
+        const rows = await sql`select id::text, name, to_char(date,'YYYY-MM-DD') as date, to_char(time,'HH24:MI') as time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
         memoryStore = rows.filter(isEventItem).sort(sortByDateAsc);
         return;
       } catch (e) {
