@@ -1,7 +1,0 @@
-{
-  "buildCommand": "cd prconvention && npm ci && npm run build",
-  "outputDirectory": "prconvention/.next",
-  "installCommand": "cd prconvention && npm ci",
-  "devCommand": "cd prconvention && npm run dev",
-  "framework": "nextjs"
-}
