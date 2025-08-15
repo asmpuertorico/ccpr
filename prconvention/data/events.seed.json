@@ -1,0 +1,21 @@
+[
+  {
+    "id": "expo-001",
+    "name": "Tech Expo Puerto Rico",
+    "date": "2025-09-12",
+    "time": "10:00",
+    "planner": "PR Tech Association",
+    "image": "/images/ui/placeholder-event.svg",
+    "ticketsUrl": "https://tickets.example.com/expo-001",
+    "description": "A gathering of innovators and industry leaders."
+  },
+  {
+    "id": "concert-002",
+    "name": "Caribbean Music Fest",
+    "date": "2025-10-01",
+    "time": "19:00",
+    "planner": "Island Events",
+    "image": "/images/ui/placeholder-event.svg"
+  }
+]
+

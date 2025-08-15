@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Event placeholder">
+  <rect width="800" height="600" fill="#f3f4f6"/>
+  <rect x="100" y="120" width="600" height="360" fill="#e5e7eb" rx="12"/>
+  <text x="400" y="320" text-anchor="middle" fill="#9ca3af" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="32">Event Image</text>
+</svg>
+
+
