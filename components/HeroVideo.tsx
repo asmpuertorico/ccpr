@@ -4,7 +4,7 @@ import React from "react";
 import Container from "@/components/Container";
 import { FlipWords } from "@/components/ui/flip-words";
 
-export default function HeroVideo({ locale }: { locale: string }) {
+export default function HeroVideo() {
   return (
     <section className="relative isolate min-h-screen overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -67,7 +67,7 @@ export default function HeroVideo({ locale }: { locale: string }) {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">
                 <path d="M21 15a4 4 0 0 1-4 4H9l-5 4v-6a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h13a4 4 0 0 1 4 4v8z" />
               </svg>
-              Let's Chat
+              Let&apos;s Chat
             </a>
             <a href="#events" className="inline-flex items-center rounded-full bg-black text-white px-6 py-2 text-sm font-medium hover:bg-black/90">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">

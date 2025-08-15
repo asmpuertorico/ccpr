@@ -32,7 +32,7 @@ export default async function AdminPage({ params }: { params: { locale: string }
             <PasswordGate missingEnvMessage={missingEnv} />
           </Container>
         </main>
-        <Footer locale={locale} />
+        <Footer />
       </>
     );
   }
@@ -49,7 +49,7 @@ export default async function AdminPage({ params }: { params: { locale: string }
           <AdminPanel initialEvents={events} />
         </Container>
       </main>
-      <Footer locale={locale} />
+      <Footer />
     </>
   );
 }

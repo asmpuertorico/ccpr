@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Footer({ locale }: { locale: string }) {
+export default function Footer() {
   const [, setPartners] = useState<string[]>([]);
   useEffect(() => {
     let mounted = true;

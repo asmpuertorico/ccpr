@@ -18,7 +18,7 @@ export default function Home({ params }: { params: { locale: string } }) {
     <>
       <Navbar locale={locale} dict={dict} />
       <main>
-        <HeroVideo dict={dict} />
+        <HeroVideo />
         <GradientDivider />
         <section id="events" className="w-full py-14 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ export default function Home({ params }: { params: { locale: string } }) {
         <CtaBanner locale={locale} dict={dict} />
         <SponsorsMarquee />
       </main>
-      <Footer locale={locale} />
+      <Footer />
     </>
   );
 }

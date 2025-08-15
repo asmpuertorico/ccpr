@@ -23,10 +23,10 @@ export default function Navbar({ locale, dict, alwaysSolid = false }: { locale: 
     { href: `${base}#visitors`, label: dict.nav.visitors },
     { href: `${base}#planners`, label: dict.nav.planners },
   ];
-  const rightLinks = [
-    { href: `${base}#calendar`, label: dict.nav.calendar },
-    // contact removed per request
-  ];
+  // const rightLinks = [
+  //   { href: `${base}#calendar`, label: dict.nav.calendar },
+  //   // contact removed per request
+  // ];
   const [tourOpen, setTourOpen] = useState(false);
 
   const [scrolled, setScrolled] = useState(false);
