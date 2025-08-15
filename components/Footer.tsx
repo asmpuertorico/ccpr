@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Footer({ locale }: { locale: string }) {
-  const [partners, setPartners] = useState<string[]>([]);
+  const [, setPartners] = useState<string[]>([]);
   useEffect(() => {
     let mounted = true;
     fetch("/api/sponsors")

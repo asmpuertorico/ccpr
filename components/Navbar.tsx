@@ -24,7 +24,6 @@ export default function Navbar({ locale, dict, alwaysSolid = false }: { locale: 
     { href: `${base}#planners`, label: dict.nav.planners },
   ];
   const rightLinks = [
-    { href: `${base}#tour`, label: dict.nav.tour },
     { href: `${base}#calendar`, label: dict.nav.calendar },
     // contact removed per request
   ];

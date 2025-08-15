@@ -1,6 +1,6 @@
 import { EventItem, isEventItem, sortByDateAsc } from "./events";
 import seed from "../data/events.seed.json" assert { type: "json" };
-import { put, get } from "@vercel/blob";
+import { put } from "@vercel/blob";
 import { neon } from "@neondatabase/serverless";
 
 export type StorageProvider = {
@@ -19,13 +19,8 @@ const POSTGRES_URL = process.env.POSTGRES_URL;
 async function loadFromBlob(): Promise<EventItem[] | null> {
   try {
     if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
-    const url = `blob://${BLOB_PATH}`;
-    const res = await get(url);
-    if (!res?.body) return null;
-    const text = await res.body.text();
-    const data = JSON.parse(text);
-    if (!Array.isArray(data)) return null;
-    return data.filter(isEventItem).sort(sortByDateAsc);
+    // For now, return null to skip blob loading since get is not available
+    return null;
   } catch {
     return null;
   }

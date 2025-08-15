@@ -4,11 +4,7 @@ import React from "react";
 import Container from "@/components/Container";
 import { FlipWords } from "@/components/ui/flip-words";
 
-type Dict = {
-  hero: { title: string; subtitle: string; ctaExplore: string; ctaPlan: string };
-};
-
-export default function HeroVideo({ dict, locale }: { dict: Dict; locale: string }) {
+export default function HeroVideo({ locale }: { locale: string }) {
   return (
     <section className="relative isolate min-h-screen overflow-hidden">
       <div className="absolute inset-0 -z-10">
