@@ -37,7 +37,7 @@ export function useCSRF() {
     return () => clearInterval(interval);
   }, [refreshCSRFToken]);
 
-  const getCSRFHeaders = useCallback(() => {
+  const getCSRFHeaders = useCallback((): Record<string, string> => {
     const token = csrfToken || getCSRFTokenFromDocumentCookies();
     if (!token) return {};
     
@@ -47,9 +47,10 @@ export function useCSRF() {
   }, [csrfToken]);
 
   const fetchWithCSRF = useCallback(async (url: string, options: RequestInit = {}) => {
-    const headers = {
-      ...options.headers,
-      ...getCSRFHeaders()
+    const csrfHeaders = getCSRFHeaders();
+    const headers: HeadersInit = {
+      ...(options.headers as Record<string, string> || {}),
+      ...csrfHeaders
     };
     
     return fetch(url, {

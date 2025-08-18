@@ -3,7 +3,7 @@ import { getStorage } from "@/lib/storage";
 import { getCurrentSession } from "@/lib/jwt";
 import { validateCSRFFromRequest } from "@/lib/csrf-server";
 import { validateEventData } from "@/lib/validation";
-import { deleteImageFromBlob } from "@/lib/blob-storage";
+import { deleteImageFromBlob } from "../../../../lib/blob-storage";
 
 export async function GET(
   req: NextRequest,

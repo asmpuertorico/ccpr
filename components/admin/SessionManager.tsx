@@ -13,7 +13,11 @@ export default function SessionManager() {
         const response = await fetch("/api/admin/session-check");
         if (!response.ok) {
           setSessionValid(false);
-          showToast("Session expired. Please log in again.", "error");
+          showToast({
+            type: "error",
+            title: "Session Expired",
+            message: "Please log in again."
+          });
           // Redirect to login after a short delay
           setTimeout(() => {
             window.location.reload();
@@ -22,7 +26,11 @@ export default function SessionManager() {
       } catch (error) {
         console.error("Session check failed:", error);
         setSessionValid(false);
-        showToast("Connection error. Please check your internet connection.", "error");
+        showToast({
+          type: "error",
+          title: "Connection Error",
+          message: "Please check your internet connection."
+        });
       }
     };
 
@@ -45,7 +53,11 @@ export default function SessionManager() {
       try {
         const response = await fetch("/api/admin/session-check");
         if (response.status === 401) {
-          showToast("Session will expire soon. Please save your work.", "warning");
+          showToast({
+            type: "warning",
+            title: "Session Expiring",
+            message: "Session will expire soon. Please save your work."
+          });
         }
       } catch (error) {
         // Ignore errors for warning checks

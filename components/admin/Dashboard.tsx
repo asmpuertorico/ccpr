@@ -209,7 +209,7 @@ export default function Dashboard({ events }: { events: EventItem[] }) {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ planner, percent }) => `${planner} (${(percent * 100).toFixed(0)}%)`}
+                label={({ planner, percent }) => `${planner} (${percent ? (percent * 100).toFixed(0) : 0}%)`}
                 outerRadius={80}
                 fill="#8884d8"
                 dataKey="count"

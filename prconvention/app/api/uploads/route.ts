@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentSession } from "@/lib/jwt";
 import { validateCSRFFromRequest } from "@/lib/csrf-server";
-import { uploadImageToBlob } from "@/lib/blob-storage";
+import { uploadImageToBlob } from "../../../lib/blob-storage";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 

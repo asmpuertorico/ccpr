@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentSession } from "@/lib/jwt";
 import { validateCSRFFromRequest } from "@/lib/csrf-server";
-import { cleanupOrphanedImages } from "@/lib/blob-storage";
+import { cleanupOrphanedImages } from "../../../../lib/blob-storage";
 import { getStorage } from "@/lib/storage";
 
 export async function POST(req: NextRequest) {

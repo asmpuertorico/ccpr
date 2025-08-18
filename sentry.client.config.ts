@@ -43,14 +43,7 @@ Sentry.init({
     return event;
   },
 
-  // Configure which URLs to capture
-  integrations: [
-    new Sentry.Replay({
-      // Capture only text and media, not forms for privacy
-      maskAllText: false,
-      blockAllMedia: false,
-    }),
-  ],
+  // Note: Replay integration not available in current Sentry version
 
   // Environment configuration
   environment: process.env.NODE_ENV,

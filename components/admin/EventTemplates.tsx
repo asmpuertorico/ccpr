@@ -152,7 +152,7 @@ export default function EventTemplates({ onUseTemplate, onClose }: EventTemplate
       <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
         <div className="flex items-center justify-between p-6 border-b">
           <div className="flex items-center gap-3">
-            <FileTemplate className="h-6 w-6 text-indigo-600" />
+            <File className="h-6 w-6 text-indigo-600" />
             <h2 className="text-xl font-semibold text-gray-900">Event Templates</h2>
           </div>
           <button

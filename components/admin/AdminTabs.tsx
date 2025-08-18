@@ -23,15 +23,14 @@ interface Tab {
 export default function AdminTabs({ initialEvents }: AdminTabsProps) {
   const [activeTab, setActiveTab] = useState<TabId>('dashboard');
   const [events, setEvents] = useState<EventItem[]>(initialEvents);
-  const [editingEvent, setEditingEvent] = useState<EventItem | null>(null);
 
   const handleEventEdit = (event: EventItem) => {
-    setEditingEvent(event);
+    // Switch to events tab for editing - each tab handles its own editing
     setActiveTab('events');
   };
 
   const handleEventDelete = async (eventId: string) => {
-    // This will be handled by the calendar view
+    // Remove event from local state
     setEvents(events.filter(e => e.id !== eventId));
   };
 
@@ -46,7 +45,7 @@ export default function AdminTabs({ initialEvents }: AdminTabsProps) {
       id: 'events',
       label: 'Manage Events',
       icon: <Calendar className="h-4 w-4" />,
-      component: <AdminPanel initialEvents={events} editingEvent={editingEvent} onEventUpdated={() => setEditingEvent(null)} />
+      component: <AdminPanel initialEvents={events} />
     },
     {
       id: 'calendar',

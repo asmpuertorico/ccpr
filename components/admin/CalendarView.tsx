@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useMemo } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer, View } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Calendar as CalendarIcon, Clock, User, ExternalLink, Edit, Trash2 } from "lucide-react";
@@ -26,7 +26,7 @@ interface CalendarEvent {
 export default function CalendarView({ events, onEventEdit, onEventDelete }: CalendarViewProps) {
   const { showToast } = useToast();
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
-  const [view, setView] = useState<'month' | 'week' | 'day' | 'agenda'>('month');
+  const [view, setView] = useState<View>('month');
 
   // Convert EventItem[] to CalendarEvent[]
   const calendarEvents: CalendarEvent[] = useMemo(() => {
