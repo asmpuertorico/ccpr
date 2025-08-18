@@ -15,6 +15,15 @@ interface HealthCheck {
     storage: {
       status: 'up' | 'down';
       error?: string;
+      local?: {
+        used: number;
+        path: string;
+      };
+      blob?: {
+        used: number;
+        limit: number;
+        percentage: number;
+      };
     };
     memory: {
       used: number;
