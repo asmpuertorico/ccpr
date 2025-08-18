@@ -7,7 +7,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.es/e/reverdeceras-el-concierto-tickets-1371762822529?aff=ebdssbdestsearch&keep_tld=1",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/epicentro-social-reverdeceras-concierto.jpg",
-      "image": "/images/events/epicentro-social-reverdeceras-concierto.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/epicentro-social-reverdeceras-concierto.jpg",
+      "id": "06516c3e-3350-4687-b695-f359b1788a53"
     },
     {
       "name": "The White Coat Foundation: Future Physicians Summit 2025",
@@ -16,7 +17,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://787tickets.com/carrito/boleteria/evento/151",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/physicians-summit-2025-2.jpg",
-      "image": "/images/events/physicians-summit-2025-2.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/physicians-summit-2025-2.jpg",
+      "id": "e4a67d54-0c70-4454-934a-71cbb8393c62"
     },
     {
       "name": "Navimarket 2025",
@@ -24,7 +26,8 @@
       "time": "00:00",
       "planner": "PRConvention",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/navimarket-2025.jpg",
-      "image": "/images/events/navimarket-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/navimarket-2025.jpg",
+      "id": "e1d9444d-66cc-4da9-8312-3f2530853f6d"
     },
     {
       "name": "San Juan Margarita Festival 2025",
@@ -32,7 +35,8 @@
       "time": "00:00",
       "planner": "PRConvention",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/sj-margarita-festival-2025.jpg",
-      "image": "/images/events/sj-margarita-festival-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sj-margarita-festival-2025.jpg",
+      "id": "f76289f0-2cf7-4445-bed9-f525e9572ff6"
     },
     {
       "name": "Me, Myself & I: 11ma Edición - PM Vibes",
@@ -41,7 +45,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/pm-vibes",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/me-myself-and-i-2025.jpg",
-      "image": "/images/events/me-myself-and-i-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/me-myself-and-i-2025.jpg",
+      "id": "e3b3090a-f34e-4ecd-8a3b-3af8c7effe97"
     },
     {
       "name": "IT Serve Alliance: Synergy 2025",
@@ -50,7 +55,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://events.itserve.org/synergy/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/it-serve-synergy-2025.jpg",
-      "image": "/images/events/it-serve-synergy-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/it-serve-synergy-2025.jpg",
+      "id": "ea4de2f1-7796-489d-a4f3-3b163355015b"
     },
     {
       "name": "National Women's Studies Association: 2025 Annual Conference",
@@ -59,7 +65,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.nwsa.org/annual-conference/2025-annual-conference",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/national-women-studies-2025-conference.jpg",
-      "image": "/images/events/national-women-studies-2025-conference.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/national-women-studies-2025-conference.jpg",
+      "id": "12723fda-56dd-4b02-9edb-df7042021832"
     },
     {
       "name": "Project Management Institute PR (PMI): Simposio 2025",
@@ -68,7 +75,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pmipr.org/announcements.php?id=14",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/pmi-project-management-simposio-2025.jpg",
-      "image": "/images/events/pmi-project-management-simposio-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pmi-project-management-simposio-2025.jpg",
+      "id": "8d426bdf-9c8b-4459-82e5-c7af1c3a2be2"
     },
     {
       "name": "Shine Business & Professional Women: Meet Up 2025",
@@ -77,7 +85,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.shinewomenpr.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/shine-meet-up-2025.jpg",
-      "image": "/images/events/shine-meet-up-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/shine-meet-up-2025.jpg",
+      "id": "5d7d09a8-4ef5-4b89-a164-2fe485f49507"
     },
     {
       "name": "Viaja con Álvaro: Vamos Pa' España",
@@ -86,7 +95,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://viajaconalvaro.com/feria-internacional-turismo-espana/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/viaja-con-alvaro-vamos-pa-espana.jpg",
-      "image": "/images/events/viaja-con-alvaro-vamos-pa-espana.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/viaja-con-alvaro-vamos-pa-espana.jpg",
+      "id": "673dcc5f-dc18-4af2-910a-daa865edd74b"
     },
     {
       "name": "Famous Paw Fashion Show 2025",
@@ -95,7 +105,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.facebook.com/p/Famous-Paw-Fashion-Show-Expo-Puerto-Rico-100083211134767/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/famous-paws-2025.jpg",
-      "image": "/images/events/famous-paws-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/famous-paws-2025.jpg",
+      "id": "aba3a327-f7c2-42ad-815d-fd3187777a67"
     },
     {
       "name": "Asoc. Comercio al Detal PR: Retail Out of the Box 2025",
@@ -104,7 +115,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.prinomolink.com/RetailOutOfTheBox2025#",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/acdet-comercio-al-detal-retail-out-of-the-box-2025.jpg",
-      "image": "/images/events/acdet-comercio-al-detal-retail-out-of-the-box-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/acdet-comercio-al-detal-retail-out-of-the-box-2025.jpg",
+      "id": "cd3a0fb7-948c-44b8-86d2-b8742fadaad4"
     },
     {
       "name": "All Dance International PR",
@@ -113,7 +125,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://alldanceinternational.com/es/tickets/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/all-dance-pr-2025-1.jpg",
-      "image": "/images/events/all-dance-pr-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/all-dance-pr-2025-1.jpg",
+      "id": "4ad047ca-2d77-405b-b619-841e132f8883"
     },
     {
       "name": "Import Evolution Auto Show 2025",
@@ -122,7 +135,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/import-evolution-autoshow",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/import-evolution-auto-show-2025.jpg",
-      "image": "/images/events/import-evolution-auto-show-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/import-evolution-auto-show-2025.jpg",
+      "id": "f2698bd9-aac2-4498-a38c-30302db38840"
     },
     {
       "name": "District Moda (Apparel, Shoe, Gifts & Accesories Show)",
@@ -131,7 +145,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://districtmoda.com/frontpage/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/trade-show-caribbean-octubre-2025.jpg",
-      "image": "/images/events/trade-show-caribbean-octubre-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/trade-show-caribbean-octubre-2025.jpg",
+      "id": "40f2474e-04ea-4e90-9c55-1c3ce5f73694"
     },
     {
       "name": "dõTerra NAL: Lidera (Academia de Liderazgo)",
@@ -140,7 +155,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/doterra-nal-academia-de-liderazgo-lidera-puerto-rico-tickets-1333329958799",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/doterra-nal-lidera-2025.jpg",
-      "image": "/images/events/doterra-nal-lidera-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/doterra-nal-lidera-2025.jpg",
+      "id": "630d331e-1a0b-4d83-ae82-986a8a9ededf"
     },
     {
       "name": "Glenn International: Energy 2025",
@@ -149,7 +165,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.energypr.biz/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/glenn-international-energy-2025.jpg",
-      "image": "/images/events/glenn-international-energy-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/glenn-international-energy-2025.jpg",
+      "id": "be20e380-9794-4a81-8ef6-ba55ff5eaeb8"
     },
     {
       "name": "Wounded Warrior Project: 2025 Annual PR Veterans Resource Expo",
@@ -158,7 +175,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://events.blackthorn.io/en/407enL6/puerto-rico-veteran-resource-expo-5a8p4y1thqE/overview",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/wounded-warrior-veteran-expo-2025.jpg",
-      "image": "/images/events/wounded-warrior-veteran-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/wounded-warrior-veteran-expo-2025.jpg",
+      "id": "9d395551-1aa7-40b8-8ecc-5e3c971d8ae4"
     },
     {
       "name": "The Nails Expo 2025",
@@ -167,7 +185,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/nails-expo-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/nails-expo-2025.jpg",
-      "image": "/images/events/nails-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/nails-expo-2025.jpg",
+      "id": "670b6ae6-2c96-48d2-a52a-2e2c8ef9ccd4"
     },
     {
       "name": "PR Celebration Expo 2025",
@@ -176,7 +195,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://regieventos.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/pr-celebration-bridal-expo-2025.jpg",
-      "image": "/images/events/pr-celebration-bridal-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-celebration-bridal-expo-2025.jpg",
+      "id": "457975fb-589a-457b-bc9a-58b777aed681"
     },
     {
       "name": "Colegio Médicos Cirujanos de PR: 24a. Convención Anual 2025",
@@ -185,7 +205,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.colegiomedicopr.org/medico#event",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/colgio-medicos-cirujanos-pr-convencion-2025-1.jpg",
-      "image": "/images/events/colgio-medicos-cirujanos-pr-convencion-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/colgio-medicos-cirujanos-pr-convencion-2025-1.jpg",
+      "id": "b3c15c54-9608-4c60-8212-4d5da9005879"
     },
     {
       "name": "Baby Boomers Expo 2025: Celebrando Nuestras Tradiciones",
@@ -194,7 +215,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.tickettailor.com/events/gdvevents/1642679",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/baby-boomers-expo-2025.jpg",
-      "image": "/images/events/baby-boomers-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/baby-boomers-expo-2025.jpg",
+      "id": "d685516d-bb67-4c4d-8b1e-e4942a99d2d5"
     },
     {
       "name": "International PR Tattoo Convention 2025",
@@ -203,7 +225,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.prtattooconvention.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/international-pr-tattoo-convention-2025.jpg",
-      "image": "/images/events/international-pr-tattoo-convention-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/international-pr-tattoo-convention-2025.jpg",
+      "id": "2ba64797-5084-43e9-b1f1-c0c5137c9b94"
     },
     {
       "name": "San Juan Beauty Show 2025",
@@ -212,7 +235,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://sanjuanbeautyshow.com/show-tickets-2025/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/sjbs-noviembre-2025.jpg",
-      "image": "/images/events/sjbs-noviembre-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sjbs-noviembre-2025.jpg",
+      "id": "178e0118-0152-48bf-8ab8-df9bdbffdccd"
     },
     {
       "name": "Expo AEELA 2025",
@@ -221,7 +245,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/expo-aeela-2025-tickets-1397351157929?aff=ebdssbdestsearch",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/expo-aeela-2025.jpg",
-      "image": "/images/events/expo-aeela-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/expo-aeela-2025.jpg",
+      "id": "7c978fa1-be00-4140-9c08-d86049120211"
     },
     {
       "name": "El Auto Show: 100 Años de Historia Automotriz",
@@ -230,7 +255,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/elautoshow",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/baby-boomers-expo-auto-show-2025-1.jpg",
-      "image": "/images/events/baby-boomers-expo-auto-show-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/baby-boomers-expo-auto-show-2025-1.jpg",
+      "id": "ed294a36-5dc8-46ac-b426-fe0777cd8f96"
     },
     {
       "name": "Colegio Químicos de PR: Convención PRCHEM 2025",
@@ -239,7 +265,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://cqpr1941.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/colegio-quimicos-pr-prchem-2025-1.jpg",
-      "image": "/images/events/colegio-quimicos-pr-prchem-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/colegio-quimicos-pr-prchem-2025-1.jpg",
+      "id": "02f9ffb2-fa8e-479a-9bde-5f529057aed2"
     },
     {
       "name": "Feria Hipotecaria MBA of PR 2025",
@@ -248,7 +275,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.co/e/entradas-feria-hipotecaria-mba-of-pr-2025-1338552058239?aff=ebdssbdestsearch&keep_tld=1",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/mortgage-bankers-association-2025.jpg",
-      "image": "/images/events/mortgage-bankers-association-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/mortgage-bankers-association-2025.jpg",
+      "id": "e293f4ee-1c02-4e1e-bff4-8bf8f850ae52"
     },
     {
       "name": "Fitness Competition & Expo 2025",
@@ -257,7 +285,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/fitness-body-expo",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/Fitness-Body-Expo-2025.jpg",
-      "image": "/images/events/Fitness-Body-Expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/Fitness-Body-Expo-2025.jpg",
+      "id": "048194c0-07ae-4bcf-a356-875f87f7434e"
     },
     {
       "name": "PR IT Cluster: CIO & IT Leadership Conference 2025",
@@ -266,7 +295,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/cio-it-leadership-conference-2025-tickets-1348385259609",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/CIO-IT-Leadership-Conference-2025.jpg",
-      "image": "/images/events/CIO-IT-Leadership-Conference-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/CIO-IT-Leadership-Conference-2025.jpg",
+      "id": "26495bf2-44ba-4c00-ba2f-04a5dd329336"
     },
     {
       "name": "Encuentro Educación Montessori",
@@ -275,7 +305,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.inepr.org/newsletter-febrero-2025/2025/2/28/por-primera-vez-el-instituto-nueva-escuela-celebrar-una-convencin-educativa",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/educacion-montessori-2025.jpg",
-      "image": "/images/events/educacion-montessori-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/educacion-montessori-2025.jpg",
+      "id": "a2d68f45-d1f0-47db-beb1-27bf33330614"
     },
     {
       "name": "PR Compra 2025",
@@ -284,7 +315,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://prcompra.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/pr-compra-2025.jpg",
-      "image": "/images/events/pr-compra-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-compra-2025.jpg",
+      "id": "84837106-e70e-4e47-b941-c9488035b87c"
     },
     {
       "name": "Sociedad Puertorriqueña Cuidado Crítico: 29va Convencion de Cuidado Crítico",
@@ -293,7 +325,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.es/e/29va-convencion-de-cuidado-critico-tickets-1255125376789?aff=ehometext&keep_tld=1",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/soc-cuidado-critico-2025.jpg",
-      "image": "/images/events/soc-cuidado-critico-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/soc-cuidado-critico-2025.jpg",
+      "id": "b176731b-3ef7-4269-bf0c-8a664dd6a06c"
     },
     {
       "name": "Estética & Spa Expo 2025",
@@ -302,7 +335,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://esteticayspaexpopr.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/estetica-spa-expo-2025-2.jpg",
-      "image": "/images/events/estetica-spa-expo-2025-2.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/estetica-spa-expo-2025-2.jpg",
+      "id": "e8450836-7546-4171-a139-e48e0754e6f1"
     },
     {
       "name": "SME Power Breakfast: Economic Update",
@@ -311,7 +345,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/sme-power-breakfast-economic",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/sme-power-breakfast-2025.jpg",
-      "image": "/images/events/sme-power-breakfast-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sme-power-breakfast-2025.jpg",
+      "id": "8097cd4b-7246-4390-a7d9-355f9e6f1eb9"
     },
     {
       "name": "ISPPR: Cybersecurity and Emergency Management Summit 2025",
@@ -320,7 +355,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://summit.isppr.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/isppr-cybersecurity-summit-2025.jpg",
-      "image": "/images/events/isppr-cybersecurity-summit-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/isppr-cybersecurity-summit-2025.jpg",
+      "id": "3e402965-566d-4c55-9f3b-cf2bb28c9a0d"
     },
     {
       "name": "Tacos & Margarita Fest 2025",
@@ -329,7 +365,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/tacosymargaritasfest",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/taco-margarita-fest-2025-1.jpg",
-      "image": "/images/events/taco-margarita-fest-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/taco-margarita-fest-2025-1.jpg",
+      "id": "69a88792-e0ea-4ea7-b8f9-04b8848fca43"
     },
     {
       "name": "The Bars Show 2025",
@@ -338,7 +375,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/the-bars-show-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/bars-show-2025.jpg",
-      "image": "/images/events/bars-show-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/bars-show-2025.jpg",
+      "id": "c9693820-92b3-4bbf-8bb9-0709d2b9f1aa"
     },
     {
       "name": "Mojito Fest 2025",
@@ -347,7 +385,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/mojito-fest-poncpa",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/mojito-fest-2025.jpg",
-      "image": "/images/events/mojito-fest-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/mojito-fest-2025.jpg",
+      "id": "51e1c526-adc9-4a41-b19d-8b7cf3c3145b"
     },
     {
       "name": "doTerra: \"Despierta Tus Sentidos\" Spring Tour Event",
@@ -356,7 +395,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/despierta-tus-sentidos-edicion-salud-digestiva-puerto-rico-tickets-1219762876599?aff=oddtdtcreator",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/doterra-pr-spring-tour-2025.jpg",
-      "image": "/images/events/doterra-pr-spring-tour-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/doterra-pr-spring-tour-2025.jpg",
+      "id": "afcbefc9-324c-461e-932f-65686c5282b7"
     },
     {
       "name": "Black Girls Pole: Family Pole Convention 2025",
@@ -365,7 +405,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://blackgirlspolereunion.com/2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/black-girls-pole-2025.jpg",
-      "image": "/images/events/black-girls-pole-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/black-girls-pole-2025.jpg",
+      "id": "be9e9fa6-bd10-4015-b0b9-d683f7da72c8"
     },
     {
       "name": "Coffee & Chocolate Expo 2025",
@@ -374,7 +415,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/tasteofrum2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/coffee-chocolate-expo-2025.jpg",
-      "image": "/images/events/coffee-chocolate-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/coffee-chocolate-expo-2025.jpg",
+      "id": "46992dd9-7ed5-4674-8efc-8f38188c1f4f"
     },
     {
       "name": "PR Taste of Rums",
@@ -383,7 +425,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/tasteofrum2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/taste-of-rums-2025.jpg",
-      "image": "/images/events/taste-of-rums-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/taste-of-rums-2025.jpg",
+      "id": "1473c849-85e6-4d44-bb51-9650c85cf19c"
     },
     {
       "name": "American Studies Association (ASA): Annual Meeting 2025",
@@ -392,7 +435,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.theasa.net/annual-meeting/upcoming-meeting",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/asa-annual-meeting-2025.jpg",
-      "image": "/images/events/asa-annual-meeting-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/asa-annual-meeting-2025.jpg",
+      "id": "5e99f083-0f27-474f-9387-7ebd77067082"
     },
     {
       "name": "PromTástico: Para Estudiantes de 10mo, 11mo y 12mo",
@@ -401,7 +445,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/promtastico-party",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/promtastico-2025-1.jpg",
-      "image": "/images/events/promtastico-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/promtastico-2025-1.jpg",
+      "id": "241f67d6-3ddc-448e-9789-fe01b912c107"
     },
     {
       "name": "Lola Challenge Weekend: Health & Fitness Expo 2025",
@@ -410,7 +455,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.lolachallenge.com/events",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/lola-challenge-expo-2025.jpg",
-      "image": "/images/events/lola-challenge-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/lola-challenge-expo-2025.jpg",
+      "id": "ee573ed6-f2bc-430a-a49f-42c6c8e0a50f"
     },
     {
       "name": "First Attack 2025",
@@ -419,7 +465,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/firstattack2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/first-attack-2025.jpg",
-      "image": "/images/events/first-attack-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/first-attack-2025.jpg",
+      "id": "8faf27fd-77d1-46e8-9923-f5f5cb960a01"
     },
     {
       "name": "Florida Caribbean Cruise Association (FCCA): 31st Annual Conference & Trade Show 2025",
@@ -428,7 +475,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://registry.cubegroupevents.com/fcca-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/fcca-conference-trade-show-2025.jpg",
-      "image": "/images/events/fcca-conference-trade-show-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/fcca-conference-trade-show-2025.jpg",
+      "id": "27ee5dc9-15d4-4c28-a930-c971deba0bd9"
     },
     {
       "name": "Inksane Tattoo Fest VII",
@@ -437,7 +485,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/inksane-tattoo-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/05\\/inksane-tattoo-fest-2025.jpg",
-      "image": "/images/events/inksane-tattoo-fest-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/inksane-tattoo-fest-2025.jpg",
+      "id": "e45ad4f0-3f15-4c76-a349-f81904c57e1c"
     },
     {
       "name": "ASORE PR: Bakery & Restaurant Show 2025",
@@ -446,7 +495,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://asorepr.com/asore-restaurant-show-2025-separa-la-fecha/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/asore-brs-2025.jpg",
-      "image": "/images/events/asore-brs-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/asore-brs-2025.jpg",
+      "id": "b61a8879-73c8-4898-bf63-f87f59cc9039"
     },
     {
       "name": "Parents as Teachers: 2025 International Conference",
@@ -455,7 +505,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://register.parentsasteachersconference.org/event/8240025c-0c65-4fe4-b216-f13a991433d7/summary",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/parents-as-teachers-intl-conference-2025.jpg",
-      "image": "/images/events/parents-as-teachers-intl-conference-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/parents-as-teachers-intl-conference-2025.jpg",
+      "id": "d2cb94eb-3a29-461f-97dd-715bd1a0c3c8"
     },
     {
       "name": "FID: 21th World Domino Championship",
@@ -464,7 +515,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.facebook.com/FIDomino",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/21th-World-Domino-Championship-2025.jpg",
-      "image": "/images/events/21th-World-Domino-Championship-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/21th-World-Domino-Championship-2025.jpg",
+      "id": "ecdc0147-0a8f-4620-8a36-b44c6f58a83f"
     },
     {
       "name": "PR Volleyball Fest II",
@@ -473,7 +525,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://registrospr.com//Events/View/222",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/pr-volley-fest-2025-1.jpg",
-      "image": "/images/events/pr-volley-fest-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-volley-fest-2025-1.jpg",
+      "id": "cae86b48-634d-426e-b4e0-68059220c1de"
     },
     {
       "name": "SME Digital & Innovation Forum: Immersive Island",
@@ -482,7 +535,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/sme-forum2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/sme-digital-forum-2025.jpg",
-      "image": "/images/events/sme-digital-forum-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sme-digital-forum-2025.jpg",
+      "id": "dba0ffb4-2a86-4f68-a101-cfcee29be4b5"
     },
     {
       "name": "The Summ: Student Experience Summit 2025",
@@ -491,7 +545,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://thesumm.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/the-summ-2025.jpg",
-      "image": "/images/events/the-summ-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/the-summ-2025.jpg",
+      "id": "8b87ee82-ad17-42a3-90bf-2b6fdb9631ae"
     },
     {
       "name": "Inflalandia: Treasure Park",
@@ -500,7 +555,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/inflalandia-6u9acl",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/inflalandia-treasure-park-2025.jpg",
-      "image": "/images/events/inflalandia-treasure-park-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/inflalandia-treasure-park-2025.jpg",
+      "id": "09a5bcfe-b731-444d-b689-f93f46d887a5"
     },
     {
       "name": "Lavoe Experience: Tributo Sinfónico",
@@ -509,7 +565,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/lavoe-experience",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/07\\/lavoe-sinfonico-2025.jpg",
-      "image": "/images/events/lavoe-sinfonico-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/lavoe-sinfonico-2025.jpg",
+      "id": "2dce1d1b-c2cc-4ded-863d-7050b9b5eedb"
     },
     {
       "name": "Woman 360°: One Amazing You",
@@ -518,7 +575,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/woman-360-one-amazing-you",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/woman-360-one-amazing-you-2025-2.jpg",
-      "image": "/images/events/woman-360-one-amazing-you-2025-2.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/woman-360-one-amazing-you-2025-2.jpg",
+      "id": "27a11950-cc04-4c8f-a8c9-0523a1cd08ed"
     },
     {
       "name": "High School Volleyball Challenge",
@@ -527,7 +585,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.elhighschool.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/high-school-volleyball-challenge-2025.jpg",
-      "image": "/images/events/high-school-volleyball-challenge-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/high-school-volleyball-challenge-2025.jpg",
+      "id": "cb4bc810-fed7-4e66-9ecd-97f6daae279e"
     },
     {
       "name": "Ángel Matos Volleyball Challenge",
@@ -536,7 +595,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.juegalatotin.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/angel-matos-volleyball-2025.jpg",
-      "image": "/images/events/angel-matos-volleyball-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/angel-matos-volleyball-2025.jpg",
+      "id": "1f428f97-51c0-4999-b5ee-f267569ca427"
     },
     {
       "name": "PR Basketball Club Challenge",
@@ -545,7 +605,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.elchallengepr.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/pr-basketball-challenge-2025.jpg",
-      "image": "/images/events/pr-basketball-challenge-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-basketball-challenge-2025.jpg",
+      "id": "ef2fc91f-96cb-4999-a666-360f64fb4b25"
     },
     {
       "name": "Feria Seniors: Edición Borikua",
@@ -554,7 +615,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.facebook.com/feriaseniors",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/feria-seniors-2025-1.jpg",
-      "image": "/images/events/feria-seniors-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/feria-seniors-2025-1.jpg",
+      "id": "99666aa8-e675-4119-bcd3-1809b1c1e3e6"
     },
     {
       "name": "Boricua Emprende (BE) Fest 2025",
@@ -563,7 +625,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boricuaentrepreneurfest.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/boricua-emprende-be-fest-2025.jpg",
-      "image": "/images/events/boricua-emprende-be-fest-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/boricua-emprende-be-fest-2025.jpg",
+      "id": "5feebcd8-3b0e-4e0c-9f90-4dbf1a45858a"
     },
     {
       "name": "PR Haute Couture 2025",
@@ -572,7 +635,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.hautecouturefashionweek.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/pr-haute-couture-2025-1.jpg",
-      "image": "/images/events/pr-haute-couture-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-haute-couture-2025-1.jpg",
+      "id": "c02b9129-c397-480a-ba8a-f42a62ec682b"
     },
     {
       "name": "Caribbean Volleyball Championship 2025",
@@ -581,7 +645,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/caribbeanvolleyballchampionship2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/caribbean-volleyball-championship-2025.jpg",
-      "image": "/images/events/caribbean-volleyball-championship-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/caribbean-volleyball-championship-2025.jpg",
+      "id": "87e3a36f-a137-4354-9e8d-33b764c0345b"
     },
     {
       "name": "AIC Latinoamérica: Convención 2025",
@@ -590,7 +655,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.facebook.com/artistryinternationalconvention/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/aic-latinoamerica-2025.jpg",
-      "image": "/images/events/aic-latinoamerica-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/aic-latinoamerica-2025.jpg",
+      "id": "093fb020-2efd-4109-ad3c-04948aee9936"
     },
     {
       "name": "PR Basketball Jr. Olympics 2025",
@@ -599,7 +665,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://sportsalternativepr.com/puerto-rico-baskeball-junior-olympics/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/pr-basketball-jr-olympics-2025.jpg",
-      "image": "/images/events/pr-basketball-jr-olympics-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-basketball-jr-olympics-2025.jpg",
+      "id": "9ff00645-0a4e-426e-a8ab-30683c1f4eed"
     },
     {
       "name": "Voces PR: IMCO Congress 2025",
@@ -608,7 +675,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/imco-2025-immunization-congress-2025-tickets-1119075558119",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/voces-pr-imco-2025.jpg",
-      "image": "/images/events/voces-pr-imco-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/voces-pr-imco-2025.jpg",
+      "id": "d79d2e30-11dc-4e80-ad19-760ead891407"
     },
     {
       "name": "AEP PR: Congreso Educativo 2025",
@@ -617,7 +685,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.congresoeducativoaeppr.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/asoc-educ-privada-congreso-2025.jpg",
-      "image": "/images/events/asoc-educ-privada-congreso-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/asoc-educ-privada-congreso-2025.jpg",
+      "id": "37da0761-7189-44ae-8a3c-181a57255592"
     },
     {
       "name": "Colegio Cirujanos Dentistas PR: Congreso 2025",
@@ -626,7 +695,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://ccdpr.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/colegio-cirujanos-dentistas-congreso-2025.jpg",
-      "image": "/images/events/colegio-cirujanos-dentistas-congreso-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/colegio-cirujanos-dentistas-congreso-2025.jpg",
+      "id": "0bc1d26b-0fee-4d2b-b72b-69182b21e71f"
     },
     {
       "name": "PR Open Model Cars & Collectibles Show",
@@ -635,7 +705,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://regieventos.com/events/pr-model-open-odel-cars-collectibles-show/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/pr-open-model-collectible-show-2025.jpg",
-      "image": "/images/events/pr-open-model-collectible-show-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-open-model-collectible-show-2025.jpg",
+      "id": "67edb161-682f-4c49-b7fa-021ce487c2c9"
     },
     {
       "name": "Viviendo en Abundancia",
@@ -644,7 +715,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://viviendoenabundancia.org/tickets/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/viviendo-en-abundancia-2025.jpg",
-      "image": "/images/events/viviendo-en-abundancia-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/viviendo-en-abundancia-2025.jpg",
+      "id": "4fd140c6-bfc5-44f3-85ff-1865bc2556c3"
     },
     {
       "name": "MEDWeek 2025",
@@ -653,7 +725,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.es/e/medweek-2025-tickets-1140925722549?aff=ebdssbdestsearch&keep_tld=1",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/medweek-2025.jpg",
-      "image": "/images/events/medweek-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/medweek-2025.jpg",
+      "id": "2dbab8ce-cb7e-4cad-b227-fe8eb5390140"
     },
     {
       "name": "Tradeshow of the Caribbean / District Moda (Apparel, Shoes, Gifts & Accesories Show)",
@@ -662,7 +735,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://districtmoda.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/trade-show-caribbean-abril-2025.jpg",
-      "image": "/images/events/trade-show-caribbean-abril-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/trade-show-caribbean-abril-2025.jpg",
+      "id": "95d34616-0e8d-4535-ac28-178df4e89c4c"
     },
     {
       "name": "The Therapy PR Bazaar 2025",
@@ -671,7 +745,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.facebook.com/thetherapypr/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/the-therapy-bazaar-2025.jpg",
-      "image": "/images/events/the-therapy-bazaar-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/the-therapy-bazaar-2025.jpg",
+      "id": "3180427e-b97a-4545-a69b-9d29f54fa592"
     },
     {
       "name": "PR Comic Con 2025",
@@ -680,7 +755,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/puerto-rico-comic-con-2025-viernes-cp4i8k-1",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/pr-comic-con-2025.jpg",
-      "image": "/images/events/pr-comic-con-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-comic-con-2025.jpg",
+      "id": "a73f49a0-ea16-4a86-8e40-abd1650bab3e"
     },
     {
       "name": "Vegan Paradise Fest 2025",
@@ -689,7 +765,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.prinomolink.com/VeganParadiseFest2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/vegan-paradise-fest-2025.jpg",
-      "image": "/images/events/vegan-paradise-fest-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/vegan-paradise-fest-2025.jpg",
+      "id": "400d8e1e-0a26-43fd-9fa9-bc7711f8a62e"
     },
     {
       "name": "Power League Volleyball Championship",
@@ -698,7 +775,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://regieventos.com/events/power-league-2/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/01\\/power-league-volleyball-2025-2.jpg",
-      "image": "/images/events/power-league-volleyball-2025-2.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/power-league-volleyball-2025-2.jpg",
+      "id": "58454dd2-9be6-4f01-af86-07626d3f8559"
     },
     {
       "name": "PR International FUTSAL Championship 2025",
@@ -707,7 +785,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/puerto-rico-international-futsal-championship",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/futsal-2025-1.jpg",
-      "image": "/images/events/futsal-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/futsal-2025-1.jpg",
+      "id": "d60621e2-96e5-40cd-a97f-2a19d450d9aa"
     },
     {
       "name": "Elite Tuner: Auto Topia 2025",
@@ -716,7 +795,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://ticketera.production.carbonhouse.com/events/detail/autotopia-3m078u",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/elite-tuner-auto-topia-2025.jpg",
-      "image": "/images/events/elite-tuner-auto-topia-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/elite-tuner-auto-topia-2025.jpg",
+      "id": "08d37a26-94d5-4ec0-bcbd-904aa562f19c"
     },
     {
       "name": "Tuner Evo PR 2025",
@@ -725,7 +805,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/tuner-evo",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/tuner-evo-2025.jpg",
-      "image": "/images/events/tuner-evo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/tuner-evo-2025.jpg",
+      "id": "1818f72b-0701-4dec-8c3f-1f8b0d71b56e"
     },
     {
       "name": "LD Workshops Ministry: 2do Congreso de Baile Sacra 2025",
@@ -734,7 +815,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.eventbrite.com/e/2da-convencion-internacional-danza-cristiana-tickets-1122425036499?",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/2do-congreso-baile-sacra-2025.jpg",
-      "image": "/images/events/2do-congreso-baile-sacra-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/2do-congreso-baile-sacra-2025.jpg",
+      "id": "8988bd41-be77-4596-8101-32787989cd7e"
     },
     {
       "name": "Expo Mecánika 2025",
@@ -743,7 +825,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "http://www.expomecanika.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/expo-mecanika-2025.jpg",
-      "image": "/images/events/expo-mecanika-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/expo-mecanika-2025.jpg",
+      "id": "0162d177-5ddf-46ac-a683-5207df8bfaf6"
     },
     {
       "name": "PR Outdoor Expo 2025",
@@ -752,7 +835,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/es/proutdoorexpo2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/pr-outdoor-expo-2025-1.jpg",
-      "image": "/images/events/pr-outdoor-expo-2025-1.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-outdoor-expo-2025-1.jpg",
+      "id": "d63701a9-a4f4-4d5c-b01d-528d6e69cce7"
     },
     {
       "name": "MIDA: Conference & Food Show 2025",
@@ -761,7 +845,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.midaconferenceandfoodshow.com/copy-of-boletos",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/mida-2025.jpg",
-      "image": "/images/events/mida-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/mida-2025.jpg",
+      "id": "f8370466-e796-4bf3-9cac-abf64c9028a3"
     },
     {
       "name": "Sports Alternative: PR Volleyball Championship 2025",
@@ -770,7 +855,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://eventospr.com/carrito/boleteria/evento/142",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/pr-volleyball-championship-2025.jpg",
-      "image": "/images/events/pr-volleyball-championship-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/pr-volleyball-championship-2025.jpg",
+      "id": "0794087a-a3f6-4a62-8cf3-f1396246856b"
     },
     {
       "name": "Centro para una Nueva Economía (CNE): 25th Anniversary Summit",
@@ -779,7 +865,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://grupocne.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/cne-25-anniversary-summit.jpg",
-      "image": "/images/events/cne-25-anniversary-summit.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/cne-25-anniversary-summit.jpg",
+      "id": "24b8bc95-6cbf-459d-b6db-ed09514267f3"
     },
     {
       "name": "Luxury International Fashion Week",
@@ -788,7 +875,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/luxury-intl-fashion-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/luxury-international-fashion-week.jpg",
-      "image": "/images/events/luxury-international-fashion-week.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/luxury-international-fashion-week.jpg",
+      "id": "c4c7e98d-e778-4a14-a4c1-7439ed68f361"
     },
     {
       "name": "Handyman World 2025",
@@ -797,7 +885,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/handyman-world-2025-pabk9d",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/handyman-world-2025.jpg",
-      "image": "/images/events/handyman-world-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/handyman-world-2025.jpg",
+      "id": "af7f4851-69b9-4be7-b571-d120286a2f13"
     },
     {
       "name": "Society for Freshwater Science (SFS): Annual Meeting 2025",
@@ -806,7 +895,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.sfsannualmeeting.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/society-freshwater-science-2025.jpg",
-      "image": "/images/events/society-freshwater-science-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/society-freshwater-science-2025.jpg",
+      "id": "02dd52d6-0a74-4ff2-96bb-040fec0b3623"
     },
     {
       "name": "San Juan Beauty Show 2025: Professional Show",
@@ -815,7 +905,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://sanjuanbeautyshow.com/show-tickets-2025/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/04\\/sjbs-mayo-2025.jpg",
-      "image": "/images/events/sjbs-mayo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sjbs-mayo-2025.jpg",
+      "id": "35b6df74-ec65-46d3-8c7e-dd926127a375"
     },
     {
       "name": "American Association of Colleges and Universities (AAC&U): DESS & GEPA Conferences 2025",
@@ -824,7 +915,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.aacu.org/conferences",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/AACU-2025.jpg",
-      "image": "/images/events/AACU-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/AACU-2025.jpg",
+      "id": "98ca0365-20e8-43ff-a172-fc448c95926b"
     },
     {
       "name": "PR Motorbike Expo 2025",
@@ -833,7 +925,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/puerto-rico-motorbike-expo-2025-ownb1e#tickets",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/motorbike-expo-2025.jpg",
-      "image": "/images/events/motorbike-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/motorbike-expo-2025.jpg",
+      "id": "71d65951-7bf7-47de-9365-9236d6104455"
     },
     {
       "name": "Candy World Expo 2025",
@@ -842,7 +935,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/candy-world-expo-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/06\\/candy-world-2025.jpg",
-      "image": "/images/events/candy-world-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/candy-world-2025.jpg",
+      "id": "c7c2cc60-3fbc-4117-bf7c-b55afbe37049"
     },
     {
       "name": "Liberty Volleyball Showcase 2025",
@@ -851,7 +945,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://libertyvolleyballshowcase.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/liberty-volleyball-showcase-2025.jpg",
-      "image": "/images/events/liberty-volleyball-showcase-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/liberty-volleyball-showcase-2025.jpg",
+      "id": "82eb8626-eab7-405a-aa61-38cbb1dc0fb2"
     },
     {
       "name": "SME: Sales Summit 2025",
@@ -860,7 +955,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://pietix.com/sme-salessummit-2025",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/sme-sales-summit-2025.jpg",
-      "image": "/images/events/sme-sales-summit-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sme-sales-summit-2025.jpg",
+      "id": "1c995e36-3a50-4d6c-91e9-a3224b4c2cf7"
     },
     {
       "name": "Sports Alternative PR: Spring Volleyball Challenge 2025",
@@ -869,7 +965,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://sportsalternativepr.com/costos-de-entrada-spring-volleyball/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/sports-alternative-spring-volleyball-2025.jpg",
-      "image": "/images/events/sports-alternative-spring-volleyball-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/sports-alternative-spring-volleyball-2025.jpg",
+      "id": "2a74f684-aa83-45f7-9e77-b6a1b0438708"
     },
     {
       "name": "Human Amyloid Imaging (HAI) Conference 2025",
@@ -878,7 +975,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://hai.worldeventsforum.com/registration/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/hai-conference-2025.jpg",
-      "image": "/images/events/hai-conference-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/hai-conference-2025.jpg",
+      "id": "0ded6a8a-2537-45b2-9061-67b11e6f0906"
     },
     {
       "name": "Caribbean Bridal Expo 2025",
@@ -887,7 +985,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.ticketera.com/events/detail/caribbean-bridal-expo-2025-ag8hu7",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/02\\/caribbean-bridal-expo-2025.jpg",
-      "image": "/images/events/caribbean-bridal-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/caribbean-bridal-expo-2025.jpg",
+      "id": "e244fd56-6e80-4dbf-88a9-333f93f9de84"
     },
     {
       "name": "Verónica Avilés, LLC: E-Commerce Mastermind 2025",
@@ -896,7 +995,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.veronicaaviles.com/mastermind",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2025\\/03\\/veronica-aviles-ecommerce-mastermind-2025.jpg",
-      "image": "/images/events/veronica-aviles-ecommerce-mastermind-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/veronica-aviles-ecommerce-mastermind-2025.jpg",
+      "id": "a0b140b1-4d88-4fb1-889a-1c06156e919a"
     },
     {
       "name": "AMCA 2025 Annual Meeting",
@@ -905,7 +1005,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://amca2025.eventscribe.net/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/amca-annual-meeting-2025.jpg",
-      "image": "/images/events/amca-annual-meeting-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/amca-annual-meeting-2025.jpg",
+      "id": "9acaef4b-74b9-4a58-9627-17987e5a4d83"
     },
     {
       "name": "WRFA: Medicare Marketing & Sales Summit 2025",
@@ -914,7 +1015,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.mms.risehealth.org/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/wrfa-medicare-marketing-and-sales-summit-2025.jpg",
-      "image": "/images/events/wrfa-medicare-marketing-and-sales-summit-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/wrfa-medicare-marketing-and-sales-summit-2025.jpg",
+      "id": "debe4c41-b9e9-4511-8733-72b86ac3c04a"
     },
     {
       "name": "ReBook: Short Term Rental Conference 2025",
@@ -923,7 +1025,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://www.rebookconference.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/rebook-short-term-2025.jpg",
-      "image": "/images/events/rebook-short-term-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/rebook-short-term-2025.jpg",
+      "id": "7ef33e5f-7d19-468b-86e9-c68d04a4dfb8"
     },
     {
       "name": "Home Design Expo",
@@ -932,7 +1035,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://boletos.prticket.com/events/en/home-design-expo",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/home-design-expo-2025.jpg",
-      "image": "/images/events/home-design-expo-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/home-design-expo-2025.jpg",
+      "id": "0334ead8-4bb0-478b-aa31-d1b9a9bb12eb"
     },
     {
       "name": "Trade Show of the Caribbean / District Moda (Apparel, Shoes, Gifts & Accesories Show)",
@@ -941,7 +1045,8 @@
       "planner": "PRConvention",
       "ticketsUrl": "https://districtmoda.com/",
       "imageOriginal": "https:\\/\\/prconvention.com\\/wp-content\\/uploads\\/2024\\/12\\/trade-show-caribbean-2025.jpg",
-      "image": "/images/events/trade-show-caribbean-2025.jpg"
+      "image": "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com/events/trade-show-caribbean-2025.jpg",
+      "id": "af1892a1-a72c-4deb-9077-ece5e860d35d"
     }
   ]
 }

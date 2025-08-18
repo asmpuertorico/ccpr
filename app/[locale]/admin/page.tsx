@@ -9,8 +9,12 @@ import Footer from "@/components/Footer";
 import { getStorage } from "@/lib/storage";
 import Container from "@/components/Container";
 import type { EventItem } from "@/lib/events";
+import { getCurrentSession } from "@/lib/jwt";
 import NextDynamic from "next/dynamic";
-const AdminPanelClient = NextDynamic(() => import("@/components/admin/AdminPanel"), { ssr: false });
+const AdminTabsClient = NextDynamic(() => import("@/components/admin/AdminTabs"), { ssr: false });
+const ErrorBoundary = NextDynamic(() => import("@/components/admin/ErrorBoundary"), { ssr: false });
+const ToastProvider = NextDynamic(() => import("@/components/admin/Toast").then(mod => ({ default: mod.ToastProvider })), { ssr: false });
+const SessionManager = NextDynamic(() => import("@/components/admin/SessionManager"), { ssr: false });
 
 export const dynamic = "force-dynamic";
 
@@ -19,33 +23,45 @@ export default async function AdminPage({ params }: { params: { locale: string }
   if (!supportedLocales.includes(locale)) notFound();
   const dict = locale === "es" ? es : en;
 
-  const pcAdmin = cookies().get("pc_admin")?.value === "1";
+  const session = getCurrentSession();
+  const isAuthenticated = session !== null;
 
-  if (!pcAdmin) {
+  if (!isAuthenticated) {
     const missingEnv = !process.env.ADMIN_PASSWORD ? dict.admin.missingEnv : undefined;
     return (
       <>
-        <Navbar locale={locale} dict={dict} alwaysSolid />
-        <main className="pt-24 pb-8 font-sans">
-          <Container>
-            <h1 className="text-2xl font-semibold mb-4">Calendar Management</h1>
+        <main className="font-sans min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
+          <div className="w-full max-w-md">
+            <div className="text-center mb-8">
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/images/ui/Logo-900-PRCC.png" 
+                  alt="PRCC Logo" 
+                  className="h-20 w-auto"
+                />
+              </div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Calendar Management</h1>
+              <p className="text-gray-600 dark:text-gray-400">Sign in to manage events, view analytics, and monitor system performance</p>
+            </div>
             <PasswordGate missingEnvMessage={missingEnv} />
-          </Container>
+          </div>
         </main>
-        <Footer />
       </>
     );
   }
 
   const storage = getStorage();
-  const events = await storage.list();
+  const events = await storage.listFresh(); // Always fetch fresh data for admin page
 
   return (
     <>
       <Navbar locale={locale} dict={dict} alwaysSolid />
-      <main className="pt-24 pb-8 font-sans">
+      <main className="pt-32 pb-8 font-sans min-h-screen bg-gray-50">
         <Container>
-          <h1 className="text-2xl font-semibold mb-4">Calendar Management</h1>
+          <div className="mb-8 pt-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Calendar Management</h1>
+            <p className="text-gray-600">Manage events, view analytics, and monitor system performance</p>
+          </div>
           <AdminPanel initialEvents={events} />
         </Container>
       </main>
@@ -55,7 +71,14 @@ export default async function AdminPage({ params }: { params: { locale: string }
 }
 
 function AdminPanel({ initialEvents }: { initialEvents: EventItem[] }) {
-  return <AdminPanelClient initialEvents={initialEvents} />;
+  return (
+    <ToastProvider>
+      <SessionManager />
+      <ErrorBoundary>
+        <AdminTabsClient initialEvents={initialEvents} />
+      </ErrorBoundary>
+    </ToastProvider>
+  );
 }
 
 export const metadata = {
