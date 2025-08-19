@@ -36,11 +36,11 @@ export default async function EventDetail({
             <div className="py-4">
               <nav className="flex items-center space-x-2 text-sm text-gray-500">
                 <Link href={`/${locale}`} className="hover:text-ocean transition-colors">
-                  Home
+                  {dict.events.home}
                 </Link>
                 <span>·</span>
                 <Link href={`/${locale}#events`} className="hover:text-ocean transition-colors">
-                  Events
+                  {dict.events.eventsLink}
                 </Link>
                 <span>·</span>
                 <span className="text-gray-900 font-medium truncate">
@@ -172,7 +172,7 @@ export default async function EventDetail({
           </div>
         </Container>
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} />
     </>
   );
 }

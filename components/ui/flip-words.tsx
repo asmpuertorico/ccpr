@@ -8,7 +8,7 @@ export const FlipWords = ({
   duration = 3000,
   className,
 }: {
-  words: string[];
+  words: readonly string[];
   duration?: number;
   className?: string;
 }) => {

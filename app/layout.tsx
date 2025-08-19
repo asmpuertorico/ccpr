@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import ChatModal from "@/components/ChatModal";
-import IframeModal from "@/components/IframeModal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -44,11 +42,50 @@ export default function RootLayout({
             })();
           `}
         </Script>
+
+        {/* Osano Privacy Script */}
+        <Script 
+          src="https://cmp.osano.com/AzyhRbU0mpbR52aP8/49374e12-2d3e-4423-bf87-dcabc8268e3e/osano.js"
+          strategy="afterInteractive"
+        />
+        
+        <Script id="osano-config" strategy="afterInteractive">
+          {`
+            // Osano configuration to position privacy button on the left
+            window.osanoConfig = window.osanoConfig || {};
+            window.osanoConfig.floatingIconPosition = 'bottom-left';
+            
+            // Additional CSS to ensure proper positioning
+            (function() {
+              var style = document.createElement('style');
+              style.textContent = \`
+                /* Position Osano privacy button on the left */
+                .osano-cm-widget {
+                  left: 20px !important;
+                  right: auto !important;
+                  z-index: 1000 !important;
+                }
+                
+                /* Ensure it doesn't conflict with chat widget */
+                .osano-cm-dialog {
+                  z-index: 1001 !important;
+                }
+                
+                /* Mobile adjustments */
+                @media (max-width: 768px) {
+                  .osano-cm-widget {
+                    left: 16px !important;
+                    bottom: 80px !important; /* Avoid mobile navigation if any */
+                  }
+                }
+              \`;
+              document.head.appendChild(style);
+            })();
+          `}
+        </Script>
       </head>
       <body className="bg-white text-ink antialiased font-sans">
         {children}
-        <ChatModal />
-        <IframeModal />
       </body>
     </html>
   );

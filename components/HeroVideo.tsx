@@ -3,8 +3,20 @@
 import React from "react";
 import Container from "@/components/Container";
 import { FlipWords } from "@/components/ui/flip-words";
+import { SupportedLocale } from "@/lib/i18n/locales";
 
-export default function HeroVideo() {
+type Dict = {
+  hero?: {
+    award: string;
+    flipWords: readonly string[];
+    textBefore: string;
+    textAfter: string;
+    letsChat: string;
+    nextEvents: string;
+  };
+};
+
+export default function HeroVideo({ locale, dict }: { locale: SupportedLocale; dict: Dict }) {
   return (
     <section className="relative isolate min-h-screen overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -42,32 +54,25 @@ export default function HeroVideo() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
                 <path d="M17 3h4a1 1 0 0 1 1 1v2a5 5 0 0 1-5 5h-.28A7 7 0 0 1 13 13.72V17h3a1 1 0 0 1 0 2h-3v2h4a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2h4v-2H8a1 1 0 0 1 0-2h3v-3.28A7 7 0 0 1 7.28 11H7A5 5 0 0 1 2 6V4a1 1 0 0 1 1-1h4V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v1Zm-2 0H9v1a1 1 0 0 1-1 1H4v1a3 3 0 0 0 3 3h.28a7 7 0 0 1 9.44 0H17a3 3 0 0 0 3-3V5h-4a1 1 0 0 1-1-1V3Z"/>
               </svg>
-              <span>Stella Award Winners</span>
+              <span>{dict.hero?.award || "Stella Award Winners"}</span>
               <span aria-hidden className="ml-1">→</span>
             </a>
           </div>
           <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-medium max-w-4xl leading-[1.1] md:leading-tight">
-            <span>Your </span>
+            <span>{dict.hero?.textBefore || "Your "}</span>
             <FlipWords
-              words={[
-                "sports event",
-                "graduation",
-                "meeting",
-                "conference",
-                "convention",
-                "concert",
-              ]}
+              words={dict.hero?.flipWords || ["sports event", "graduation", "meeting", "conference", "convention", "concert"]}
               className="font-medium text-[#90d8f8]"
             />
             <br />
-            <span>deserves the best venue</span>
+            <span>{dict.hero?.textAfter || "deserves the best venue"}</span>
           </h1>
           <div className="mt-4 flex gap-3">
             <a onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("open-chat-modal")); }} href="#" className="inline-flex items-center rounded-full bg-white text-ink px-6 py-2 text-sm font-medium hover:bg-white/90">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">
                 <path d="M21 15a4 4 0 0 1-4 4H9l-5 4v-6a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h13a4 4 0 0 1 4 4v8z" />
               </svg>
-              Let&apos;s Chat
+              {dict.hero?.letsChat || "Let's Chat"}
             </a>
             <a href="#events" className="inline-flex items-center rounded-full bg-black text-white px-6 py-2 text-sm font-medium hover:bg-black/90">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">
@@ -76,7 +81,7 @@ export default function HeroVideo() {
                 <line x1="8" y1="3" x2="8" y2="7" />
                 <line x1="3" y1="11" x2="21" y2="11" />
               </svg>
-              Next Events
+              {dict.hero?.nextEvents || "Next Events"}
             </a>
           </div>
         </Container>

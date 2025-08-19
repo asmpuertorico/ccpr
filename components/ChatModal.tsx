@@ -1,8 +1,16 @@
 "use client";
 
 import React from "react";
+import { SupportedLocale } from "@/lib/i18n/locales";
 
-export default function ChatModal() {
+type Dict = {
+  modals?: {
+    contactUs: string;
+    close: string;
+  };
+};
+
+export default function ChatModal({ locale, dict }: { locale: SupportedLocale; dict: Dict }) {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -25,10 +33,10 @@ export default function ChatModal() {
       <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-ink/10">
-          <h2 className="text-sm font-semibold text-ink">Contact us</h2>
+          <h2 className="text-sm font-semibold text-ink">{dict.modals?.contactUs || "Contact us"}</h2>
           <button
             type="button"
-            aria-label="Close"
+            aria-label={dict.modals?.close || "Close"}
             onClick={() => setOpen(false)}
             className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-ink/5"
           >

@@ -20,7 +20,7 @@ export default function SponsorsMarquee() {
   }, []);
 
   return (
-    <section className="py-8 select-none">
+    <section className=" select-none">
       <Container>
         <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex items-center gap-12 animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused] will-change-transform">

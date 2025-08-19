@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { defaultLocale, supportedLocales, type SupportedLocale } from "@/lib/i18n/locales";
 import { en } from "@/lib/i18n/dictionaries/en";
 import { es } from "@/lib/i18n/dictionaries/es";
+import ChatModal from "@/components/ChatModal";
+import IframeModal from "@/components/IframeModal";
+import AwardsModal from "@/components/AwardsModal";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -24,6 +27,7 @@ export default function LocaleLayout({
 }: Readonly<{ children: React.ReactNode; params: { locale: string } }>) {
   const locale = (params.locale || defaultLocale) as SupportedLocale;
   if (!supportedLocales.includes(locale)) notFound();
+  const dict = locale === "es" ? es : en;
   return (
     <html lang={locale} className="scroll-smooth">
       <head>
@@ -55,7 +59,12 @@ export default function LocaleLayout({
           `}
         </Script>
       </head>
-      <body className="bg-white text-ink antialiased">{children}</body>
+      <body className="bg-white text-ink antialiased">
+        {children}
+        <ChatModal locale={locale} dict={dict} />
+        <IframeModal />
+        <AwardsModal locale={locale} dict={dict} />
+      </body>
     </html>
   );
 }

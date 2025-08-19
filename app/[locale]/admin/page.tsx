@@ -36,12 +36,12 @@ export default async function AdminPage({ params }: { params: { locale: string }
               <div className="flex justify-center mb-6">
                 <img 
                   src="/images/ui/Logo-900-PRCC.png" 
-                  alt="PRCC Logo" 
+                  alt={dict.admin.logoAlt}
                   className="h-20 w-auto"
                 />
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Calendar Management</h1>
-              <p className="text-gray-600 dark:text-gray-400">Sign in to manage events, view analytics, and monitor system performance</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{dict.admin.title}</h1>
+              <p className="text-gray-600 dark:text-gray-400">{dict.admin.signInDesc}</p>
             </div>
             <PasswordGate missingEnvMessage={missingEnv} />
           </div>
@@ -59,13 +59,13 @@ export default async function AdminPage({ params }: { params: { locale: string }
       <main className="pt-32 pb-8 font-sans min-h-screen bg-gray-50">
         <Container>
           <div className="mb-8 pt-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Calendar Management</h1>
-            <p className="text-gray-600">Manage events, view analytics, and monitor system performance</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">{dict.admin.title}</h1>
+            <p className="text-gray-600">{dict.admin.signInDesc}</p>
           </div>
           <AdminPanel initialEvents={events} />
         </Container>
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} />
     </>
   );
 }
