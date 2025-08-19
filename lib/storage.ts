@@ -17,6 +17,25 @@ export type StorageProvider = {
 let memoryStore: EventItem[] | null = null;
 const BLOB_PATH = process.env.EVENTS_BLOB_PATH || "events.json";
 const POSTGRES_URL = process.env.POSTGRES_URL;
+const BLOB_DOMAIN = "https://gbqzdseftkxm9cmm.public.blob.vercel-storage.com";
+
+// Convert local image paths to blob URLs
+function convertImageUrl(imageUrl: string): string {
+  if (!imageUrl) return imageUrl;
+  
+  // If it's already a blob URL, return as-is
+  if (imageUrl.includes("blob.vercel-storage.com")) {
+    return imageUrl;
+  }
+  
+  // If it's a local path, convert to blob URL
+  if (imageUrl.startsWith("/images/events/")) {
+    const filename = imageUrl.replace("/images/events/", "");
+    return `${BLOB_DOMAIN}/events/${filename}`;
+  }
+  
+  return imageUrl;
+}
 
 async function loadFromBlob(): Promise<EventItem[] | null> {
   try {
@@ -34,8 +53,14 @@ async function ensureSeeded() {
     if (POSTGRES_URL) {
       try {
         const sql = neon(POSTGRES_URL);
-        const rows = await sql`select id::text, name, to_char(date,'YYYY-MM-DD') as date, to_char(time,'HH24:MI') as time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
-        memoryStore = rows.filter(isEventItem).sort(sortByDateAsc);
+        const rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        memoryStore = rows
+          .filter(isEventItem)
+          .map(event => ({
+            ...event,
+            image: convertImageUrl(event.image)
+          }))
+          .sort(sortByDateAsc);
         return;
       } catch (e) {
         // fall back if query fails
@@ -92,15 +117,27 @@ async function persistToNeon(data: EventItem[]): Promise<void> {
 const inMemoryProvider: StorageProvider = {
   async list() {
     await ensureSeeded();
-    return memoryStore!.slice().sort(sortByDateAsc);
+    return memoryStore!
+      .map(event => ({
+        ...event,
+        image: convertImageUrl(event.image)
+      }))
+      .slice()
+      .sort(sortByDateAsc);
   },
   async listFresh() {
     // Always fetch fresh data from database, bypass memory cache
     if (POSTGRES_URL) {
       try {
         const sql = neon(POSTGRES_URL);
-        const rows = await sql`select id::text, name, to_char(date,'YYYY-MM-DD') as date, to_char(time,'HH24:MI') as time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
-        const fresh = rows.filter(isEventItem).sort(sortByDateAsc);
+        const rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        const fresh = rows
+          .filter(isEventItem)
+          .map(event => ({
+            ...event,
+            image: convertImageUrl(event.image)
+          }))
+          .sort(sortByDateAsc);
         // Update memory cache with fresh data
         memoryStore = fresh;
         return fresh;
@@ -108,7 +145,13 @@ const inMemoryProvider: StorageProvider = {
         console.error('Fresh fetch failed, falling back to cached data:', e);
         // Fall back to cached data if DB fetch fails
         await ensureSeeded();
-        return memoryStore!.slice().sort(sortByDateAsc);
+        return memoryStore!
+          .map(event => ({
+            ...event,
+            image: convertImageUrl(event.image)
+          }))
+          .slice()
+          .sort(sortByDateAsc);
       }
     }
     // If no Postgres, fall back to regular list method
@@ -116,7 +159,14 @@ const inMemoryProvider: StorageProvider = {
   },
   async get(id) {
     await ensureSeeded();
-    return memoryStore!.find((e) => e.id === id);
+    const event = memoryStore!.find((e) => e.id === id);
+    if (event) {
+      return {
+        ...event,
+        image: convertImageUrl(event.image)
+      };
+    }
+    return event;
   },
   async create(event) {
     await ensureSeeded();

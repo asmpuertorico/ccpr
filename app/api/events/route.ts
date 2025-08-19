@@ -6,8 +6,18 @@ import { validateCSRFFromRequest } from "@/lib/csrf-server";
 import { validateEventData } from "@/lib/validation";
 
 export async function GET() {
-  const events = await getStorage().list();
-  return NextResponse.json({ events });
+  // Always fetch fresh data to avoid stale cache issues
+  const events = await getStorage().listFresh();
+  return NextResponse.json({ 
+    events,
+    timestamp: Date.now() // Add timestamp to help with cache busting
+  }, {
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    }
+  });
 }
 
 export async function POST(req: NextRequest) {

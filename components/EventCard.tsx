@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import SafeEventImage from "@/components/SafeEventImage";
 import { EventItem, formatEventDate, formatEventTime } from "@/lib/events";
 
 export default function EventCard({ event, buyLabel, locale }: { event: EventItem; buyLabel: string; locale: string }) {
   return (
     <div className="w-72 shrink-0 bg-white rounded-lg shadow border border-ink/10 overflow-hidden">
       <div className="relative aspect-[4/3]">
-        <Image src={event.image} alt={event.name} fill sizes="(max-width: 768px) 80vw, 18rem" className="object-cover" />
+        <SafeEventImage src={event.image} alt={event.name} fill sizes="(max-width: 768px) 80vw, 18rem" className="object-cover" />
         {/* Date badge */}
         <div className="absolute top-2 left-2 inline-flex items-center rounded-full bg-black/70 text-white px-2 py-0.5 text-[11px] font-semibold ring-1 ring-white/20">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-1">

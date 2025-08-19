@@ -231,12 +231,22 @@ export default function AdminPanel({ initialEvents }: Props) {
       
       if (res.ok) {
         const created = (await res.json()) as EventItem;
-        // Add cache-busting for new images to prevent browser caching
-        const createdWithCacheBust = {
-          ...created,
-          image: created.image && imageFile ? `${created.image}?t=${Date.now()}` : created.image
-        };
-        setEvents((prev) => [...prev, createdWithCacheBust]);
+        // Refresh events list from database to ensure we have the latest data
+        try {
+          const freshEvents = await fetch('/api/events').then(r => r.json()).then(data => data.events);
+          if (Array.isArray(freshEvents)) {
+            setEvents(freshEvents);
+          }
+        } catch (error) {
+          console.error('Failed to refresh events list:', error);
+          // Fallback to adding the created event to the current list
+          const createdWithCacheBust = {
+            ...created,
+            image: created.image && imageFile ? `${created.image}?t=${Date.now()}` : created.image
+          };
+          setEvents((prev) => [...prev, createdWithCacheBust]);
+        }
+        
         setForm({});
         setImageFile(null);
         setValidationErrors({});
@@ -429,14 +439,24 @@ export default function AdminPanel({ initialEvents }: Props) {
 
       if (res.ok) {
         const updated = (await res.json()) as EventItem;
-        // Add cache-busting timestamp to image URL to force browser refresh
-        const updatedWithCacheBust = {
-          ...updated,
-          image: updated.image && updated.image !== updatedEvent.image 
-            ? `${updated.image}?t=${Date.now()}` 
-            : updated.image
-        };
-        setEvents((prev) => prev.map((x) => (x.id === updated.id ? updatedWithCacheBust : x)));
+        // Refresh events list from database to ensure we have the latest data
+        try {
+          const freshEvents = await fetch('/api/events').then(r => r.json()).then(data => data.events);
+          if (Array.isArray(freshEvents)) {
+            setEvents(freshEvents);
+          }
+        } catch (error) {
+          console.error('Failed to refresh events list:', error);
+          // Fallback to updating the event in the current list
+          const updatedWithCacheBust = {
+            ...updated,
+            image: updated.image && updated.image !== updatedEvent.image 
+              ? `${updated.image}?t=${Date.now()}` 
+              : updated.image
+          };
+          setEvents((prev) => prev.map((x) => (x.id === updated.id ? updatedWithCacheBust : x)));
+        }
+        
         closeEditModal();
         showToast({
           type: "success",

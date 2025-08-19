@@ -5,9 +5,17 @@ import { validateCSRFFromRequest } from "@/lib/csrf-server";
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    // Always fetch fresh data and check both memory cache and DB
+    await getStorage().listFresh(); // Ensure fresh data is loaded
     const item = await getStorage().get(params.id);
     if (!item) return NextResponse.json({ message: "Not found" }, { status: 404 });
-    return NextResponse.json(item);
+    return NextResponse.json(item, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     console.error('Event fetch error:', error);
     return NextResponse.json({ message: "Internal server error" }, { status: 500 });
