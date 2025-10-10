@@ -55,7 +55,7 @@ export default function Footer({ locale, dict }: { locale: SupportedLocale; dict
               <Image src="/images/ui/CCPR%20LOGO%20WHITE4%20(1).png" alt="PRCC" width={140} height={36} />
               <div className="flex items-center gap-4 opacity-80">
                 <Image src="/images/ui/DISTRICT WHITE.png" alt="District" width={100} height={28} />
-                <Image src="/images/ui/ASM WHITE.png" alt="ASM Global" width={80} height={24} />
+                <Image src="/images/ui/legends light.png" alt="Legends Global" width={80} height={24} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 text-sm text-white/80">

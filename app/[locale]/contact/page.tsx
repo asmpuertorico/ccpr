@@ -110,26 +110,15 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex justify-center">
             {/* Margaret Colón */}
             <TeamMemberCard
               name="Margaret Colón"
               title={dict.contact.directorSalesMarketing}
               email="mcolon@prconvention.com"
               phone="(787) 641-7722"
-              image="/images/ui/margaret-colon.jpg"
+              image="/images/ui/IMG_2709.jpg"
               qrCode="/images/ui/margareth-vcard.png"
-              downloadText={dict.contact.downloadVCard}
-            />
-            
-            {/* Jorge Pérez */}
-            <TeamMemberCard
-              name="Jorge Pérez"
-              title={dict.contact.generalManager}
-              email="jorgeperez@asm-pr.com"
-              phone="(787) 641-7722"
-              image="/images/ui/jorge-perez-800x800.jpg"
-              qrCode="/images/ui/jorge-vcard.png"
               downloadText={dict.contact.downloadVCard}
             />
           </div>

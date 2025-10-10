@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import Container from "@/components/Container";
 import { FlipWords } from "@/components/ui/flip-words";
 import { SupportedLocale } from "@/lib/i18n/locales";
@@ -28,7 +28,7 @@ export default function HeroVideo({ locale, dict }: { locale: SupportedLocale; d
           loop
           playsInline
           preload="metadata"
-          poster="/videos/hero/poster.jpg"
+          poster="/images/ui/BP_PRCC_09.jpg"
         >
           <source src="/videos/hero/hero.webm" type="video/webm" />
           {/* Prefer the official MP4 first */}
@@ -38,7 +38,7 @@ export default function HeroVideo({ locale, dict }: { locale: SupportedLocale; d
         </video>
         {/* Poster fallback when motion is reduced */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/videos/hero/poster.jpg" alt="" className="w-full h-full object-cover hidden motion-reduce:block" />
+        <img src="/images/ui/BP_PRCC_09.jpg" alt="" className="w-full h-full object-cover hidden motion-reduce:block" />
       </div>
       {/* Stronger gradient overlay from black (bottom) to transparent (top) */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/70 via-black/40 to-transparent" />

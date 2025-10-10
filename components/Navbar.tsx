@@ -60,8 +60,8 @@ export default function Navbar({ locale, dict, alwaysSolid = false }: { locale: 
               <Image 
                 src={isSolid ? "/images/ui/Logo-900-PRCC.png" : "/images/ui/CCPR%20LOGO%20WHITE4%20(1).png"} 
                 alt="Puerto Rico Convention Center" 
-                width={110} 
-                height={26} 
+                width={140} 
+                height={32} 
                 priority 
               />
             </Link>
@@ -277,8 +277,22 @@ export default function Navbar({ locale, dict, alwaysSolid = false }: { locale: 
                 </li>
               </ul>
             </nav>
-            <div>
-              <LanguageToggle locale={locale} />
+            <div className="space-y-4">
+              {/* Social Media Links */}
+              <div className="flex items-center gap-4">
+                <a href="https://www.instagram.com/prconvention/" aria-label="Instagram" target="_blank" rel="noreferrer" className="text-white hover:text-sky transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.facebook.com/prconvention/" aria-label="Facebook" target="_blank" rel="noreferrer" className="text-white hover:text-sky transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12"/></svg>
+                </a>
+                <a href="https://twitter.com/prconvention" aria-label="X" target="_blank" rel="noreferrer" className="text-white hover:text-sky transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h3l-7.5 9.5L22 22h-6l-4-5.5L7 22H4l7.5-9.5L2 2h6l3.5 5L18 2z"/></svg>
+                </a>
+              </div>
+              <div>
+                <LanguageToggle locale={locale} />
+              </div>
             </div>
           </aside>
         </div>
