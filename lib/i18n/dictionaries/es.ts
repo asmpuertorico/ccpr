@@ -177,6 +177,10 @@ export const es = {
     christmasOffersDesc: "Paquetes de eventos navideños y ofertas",
     promMenu: "Menú de Graduación",
     promMenuDesc: "Menú especial para eventos de graduación",
+    emergencyResponsePlan: "Plan de Respuesta a Emergencias",
+    emergencyResponsePlanDesc: "Procedimientos de emergencia y protocolos de seguridad",
+    internetServicesForm: "Formulario de Servicios de Internet",
+    internetServicesFormDesc: "Formulario de solicitud de servicios de internet y telecomunicaciones",
     
     // Virtual Tour
     virtualTourTitle: "Tour Virtual",

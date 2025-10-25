@@ -177,6 +177,10 @@ export const en = {
     christmasOffersDesc: "Holiday event packages and offers",
     promMenu: "Prom Menu",
     promMenuDesc: "Special menu for prom events",
+    emergencyResponsePlan: "Emergency Response Plan",
+    emergencyResponsePlanDesc: "Emergency procedures and safety protocols",
+    internetServicesForm: "Internet Services Form",
+    internetServicesFormDesc: "Internet and telecommunications services request form",
     
     // Virtual Tour
     virtualTourTitle: "Virtual Tour",

@@ -181,13 +181,13 @@ export default function EventPlannersPage({ params }: { params: { locale: string
     {
       title: dict.planners?.eventPlanningGuide || "Event Planning Guide",
       description: dict.planners?.eventPlanningGuideDesc || "Comprehensive guide for planning your event",
-      filename: "Event-Planning-Guide-August-2024.pdf",
+      filename: "Event-Planning-Guide-October-2025.pdf",
       size: "2.5MB"
     },
     {
       title: dict.planners?.capacitySheet || "Capacity Sheet",
       description: dict.planners?.capacitySheetDesc || "Room capacities and configurations",
-      filename: "PRCC-Capacity-Sheet-2023.pdf",
+      filename: "PRCC-Capacity-Sheet-2025.pdf",
       size: "609KB"
     },
     {
@@ -231,6 +231,18 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       description: dict.planners?.promMenuDesc || "Special menu for prom events",
       filename: "PROM-MENU-CCPR-4.pdf",
       size: "1MB"
+    },
+    {
+      title: dict.planners?.emergencyResponsePlan || "Emergency Response Plan",
+      description: dict.planners?.emergencyResponsePlanDesc || "Emergency procedures and safety protocols",
+      filename: "Emergency-Response-Plan-PRCC-REV-2025.pdf",
+      size: "1.2MB"
+    },
+    {
+      title: dict.planners?.internetServicesForm || "Internet Services Form",
+      description: dict.planners?.internetServicesFormDesc || "Internet and telecommunications services request form",
+      filename: "Internet-Services-Form.pdf",
+      size: "500KB"
     }
   ];
 
