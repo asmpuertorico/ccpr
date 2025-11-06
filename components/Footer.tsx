@@ -18,9 +18,15 @@ declare global {
 
 type Dict = {
   footer?: {
+    legalPrivacy: string;
+    userPreferences: string;
+    contactExternal: string;
     termsOfUse: string;
+    privacyNotice: string;
     privacyPolicy: string;
     doNotSell: string;
+    yourPrivacyChoices: string;
+    adChoices: string;
     cookiesPreferences: string;
     awards: string;
     plannerResources: string;
@@ -79,84 +85,109 @@ export default function Footer({ locale, dict }: { locale: SupportedLocale; dict
             </div>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
-            <ul className="space-y-2">
-              <li>
-                <Link href={`/${locale}/terms`} className="hover:underline">
-                  {dict.footer?.termsOfUse || "Terms of Use"}
-                </Link>
-              </li>
-              <li>
-                <a 
-                  href="https://www.asmglobal.com/p/other/privacy-policy-23" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {dict.footer?.privacyPolicy || "Privacy Policy"}
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.asmglobal.com/p/other/privacy-request" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {dict.footer?.doNotSell || "Do Not Sell/Share"}
-                </a>
-              </li>
-            </ul>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  className="hover:underline text-left"
-                  onClick={() => {
-                    // Trigger Osano Cookie Preferences
-                    if (typeof window !== 'undefined' && (window as any).Osano && (window as any).Osano.cm) {
-                      (window as any).Osano.cm.showDrawer('osano-cm-dom-info-dialog-open');
-                    }
-                  }}
-                >
-                  {dict.footer?.cookiesPreferences || "Cookies Preferences"}
-                </button>
-              </li>
-              <li>
-                <button
-                  className="hover:underline text-left"
-                  onClick={() => window.dispatchEvent(new CustomEvent('open-awards-modal'))}
-                >
-                  {dict.footer?.awards || "Awards"}
-                </button>
-              </li>
-              <li>
-                <Link 
-                  href={`/${locale}/planners`} 
-                  className="hover:underline"
-                >
-                  {dict.footer?.plannerResources || "Planner Resources"}
-                </Link>
-              </li>
-            </ul>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  className="hover:underline text-left"
-                  onClick={() => window.dispatchEvent(new CustomEvent('open-chat-modal'))}
-                >
-                  {dict.footer?.contactUs || "Contact Us"}
-                </button>
-              </li>
-              <li>
-                <a 
-                  href="https://www.discoverpuertorico.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {dict.footer?.discoverPuertoRico || "Discover Puerto Rico"}
-                </a>
-              </li>
-            </ul>
+            <div>
+              <h3 className="font-semibold mb-3 text-white">
+                {dict.footer?.legalPrivacy || "Legal & Privacy"}
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="https://legendsglobal.com/privacy-notice/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {dict.footer?.privacyNotice || "Privacy Notice"}
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://yourprivacychoices.legendsglobal.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {dict.footer?.yourPrivacyChoices || "Your Privacy Choices"}
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://legendsglobal.com/privacy-notice/#ad-choices" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {dict.footer?.adChoices || "Ad Choices"}
+                  </a>
+                </li>
+                <li>
+                  <Link href={`/${locale}/terms`} className="hover:underline">
+                    {dict.footer?.termsOfUse || "Terms of Use"}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-white">
+                {dict.footer?.userPreferences || "User Preferences & Resources"}
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    className="hover:underline text-left"
+                    onClick={() => {
+                      // Trigger Osano Cookie Preferences
+                      if (typeof window !== 'undefined' && (window as any).Osano && (window as any).Osano.cm) {
+                        (window as any).Osano.cm.showDrawer('osano-cm-dom-info-dialog-open');
+                      }
+                    }}
+                  >
+                    {dict.footer?.cookiesPreferences || "Cookie Preferences"}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="hover:underline text-left"
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-awards-modal'))}
+                  >
+                    {dict.footer?.awards || "Awards"}
+                  </button>
+                </li>
+                <li>
+                  <Link 
+                    href={`/${locale}/planners`} 
+                    className="hover:underline"
+                  >
+                    {dict.footer?.plannerResources || "Planner Resources"}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-white">
+                {dict.footer?.contactExternal || "Contact & External"}
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    className="hover:underline text-left"
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-chat-modal'))}
+                  >
+                    {dict.footer?.contactUs || "Contact Us"}
+                  </button>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.discoverpuertorico.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {dict.footer?.discoverPuertoRico || "Discover Puerto Rico"}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="mt-6 border-t border-white/10 pt-6 flex items-center justify-between text-xs text-white/70">
