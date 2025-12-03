@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import EmbeddedChat from "@/components/EmbeddedChat";
+import ContactForm from "@/components/ContactForm";
 import { notFound } from "next/navigation";
 import { supportedLocales } from "@/lib/i18n/locales";
 import type { SupportedLocale } from "@/lib/i18n/locales";
@@ -121,6 +122,43 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
               qrCode="/images/ui/margareth-vcard.png"
               downloadText={dict.contact.downloadVCard}
             />
+          </div>
+        </Container>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-black mb-4">
+                {dict.contact.formTitle}
+              </h2>
+              <p className="text-lg text-gray-700">
+                {dict.contact.formSubtitle}
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+              <ContactForm
+                dict={{
+                  name: dict.contact.formName,
+                  email: dict.contact.formEmail,
+                  phone: dict.contact.formPhone,
+                  subject: dict.contact.formSubject,
+                  message: dict.contact.formMessage,
+                  submit: dict.contact.formSubmit,
+                  submitting: dict.contact.formSubmitting,
+                  success: dict.contact.formSuccess,
+                  error: dict.contact.formError,
+                  nameRequired: dict.contact.formNameRequired,
+                  emailRequired: dict.contact.formEmailRequired,
+                  emailInvalid: dict.contact.formEmailInvalid,
+                  subjectRequired: dict.contact.formSubjectRequired,
+                  messageRequired: dict.contact.formMessageRequired,
+                }}
+              />
+            </div>
           </div>
         </Container>
       </section>

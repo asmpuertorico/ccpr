@@ -208,3 +208,95 @@ export function getStorage(): StorageProvider {
   return inMemoryProvider;
 }
 
+// Enhanced event type with all database fields
+export type EnhancedEvent = {
+  id: string;
+  name: string;
+  date: string;
+  time: string;
+  planner: string;
+  image: string;
+  ticketsUrl?: string;
+  description?: string;
+  status: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+  createdBy: string;
+  updatedBy: string;
+  version: number;
+  isDeleted: boolean;
+  deletedAt?: Date | string | null;
+  deletedBy?: string | null;
+};
+
+// Fetch all events with full database fields (for LLM endpoint)
+export async function getAllEventsWithFullData(): Promise<EnhancedEvent[]> {
+  if (POSTGRES_URL) {
+    try {
+      const sql = neon(POSTGRES_URL);
+      const rows = await sql`
+        select 
+          id::text,
+          name,
+          date,
+          time,
+          planner,
+          image,
+          tickets_url as "ticketsUrl",
+          description,
+          status,
+          created_at as "createdAt",
+          updated_at as "updatedAt",
+          created_by as "createdBy",
+          updated_by as "updatedBy",
+          version,
+          is_deleted as "isDeleted",
+          deleted_at as "deletedAt",
+          deleted_by as "deletedBy"
+        from events
+        where is_deleted = false and status = 'published'
+        order by date asc, time asc
+      ` as EnhancedEvent[];
+      
+      return rows.map(event => ({
+        ...event,
+        image: convertImageUrl(event.image || ''),
+        createdAt: event.createdAt instanceof Date ? event.createdAt.toISOString() : event.createdAt,
+        updatedAt: event.updatedAt instanceof Date ? event.updatedAt.toISOString() : event.updatedAt,
+        deletedAt: event.deletedAt instanceof Date ? event.deletedAt.toISOString() : (event.deletedAt || null),
+      }));
+    } catch (e) {
+      console.error('Failed to fetch full event data from database:', e);
+      // Fall back to basic event data
+      const basicEvents = await inMemoryProvider.listFresh();
+      return basicEvents.map(event => ({
+        ...event,
+        status: 'published',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        createdBy: 'system',
+        updatedBy: 'system',
+        version: 1,
+        isDeleted: false,
+        deletedAt: null,
+        deletedBy: null,
+      }));
+    }
+  }
+  
+  // Fall back to basic event data if no database
+  const basicEvents = await inMemoryProvider.listFresh();
+  return basicEvents.map(event => ({
+    ...event,
+    status: 'published',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    createdBy: 'system',
+    updatedBy: 'system',
+    version: 1,
+    isDeleted: false,
+    deletedAt: null,
+    deletedBy: null,
+  }));
+}
+

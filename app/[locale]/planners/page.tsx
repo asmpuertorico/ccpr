@@ -6,6 +6,7 @@ import type { SupportedLocale } from "@/lib/i18n/locales";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
+import ContactForm from "@/components/ContactForm";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Download, Play, Building2, Users, Wifi, Car, Shield, Coffee, Clock, Phone, MapPin, Video, Eye } from "lucide-react";
 import Image from "next/image";
@@ -609,6 +610,43 @@ export default function EventPlannersPage({ params }: { params: { locale: string
                   <Eye className="w-5 h-5" />
                   {dict.planners?.viewSalesPresentation || "View Sales Presentation"}
                 </a>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* Contact Form Section */}
+        <section className="py-20 bg-white">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-black mb-4">
+                  {dict.contact?.formTitle || "Send us a Message"}
+                </h2>
+                <p className="text-lg text-gray-700">
+                  {dict.contact?.formSubtitle || "Fill out the form below and we'll get back to you as soon as possible."}
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+                <ContactForm
+                  dict={{
+                    name: dict.contact?.formName || "Name",
+                    email: dict.contact?.formEmail || "Email",
+                    phone: dict.contact?.formPhone || "Phone",
+                    subject: dict.contact?.formSubject || "Subject",
+                    message: dict.contact?.formMessage || "Message",
+                    submit: dict.contact?.formSubmit || "Send Message",
+                    submitting: dict.contact?.formSubmitting || "Sending...",
+                    success: dict.contact?.formSuccess || "Thank you! Your message has been sent successfully.",
+                    error: dict.contact?.formError || "Something went wrong. Please try again.",
+                    nameRequired: dict.contact?.formNameRequired || "Name is required",
+                    emailRequired: dict.contact?.formEmailRequired || "Email is required",
+                    emailInvalid: dict.contact?.formEmailInvalid || "Please enter a valid email address",
+                    subjectRequired: dict.contact?.formSubjectRequired || "Subject is required",
+                    messageRequired: dict.contact?.formMessageRequired || "Message is required",
+                  }}
+                />
               </div>
             </div>
           </Container>
