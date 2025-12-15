@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 import { defaultLocale, supportedLocales, type SupportedLocale } from "@/lib/i18n/locales";
 import { en } from "@/lib/i18n/dictionaries/en";
 import { es } from "@/lib/i18n/dictionaries/es";
@@ -64,6 +65,7 @@ export default function LocaleLayout({
         <ChatModal locale={locale} dict={dict} />
         <IframeModal />
         <AwardsModal locale={locale} dict={dict} />
+        <Analytics />
       </body>
     </html>
   );

@@ -24,6 +24,7 @@
     "@types/react-datepicker": "^6.2.0",
     "@types/sharp": "^0.31.1",
     "@types/validator": "^13.15.2",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^1.1.1",
     "clsx": "^2.1.1",
     "csv-parse": "^6.1.0",
