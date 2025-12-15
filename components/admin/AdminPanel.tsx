@@ -45,7 +45,7 @@ export default function AdminPanel({ initialEvents }: Props) {
     let result = query 
       ? events.filter((e) => {
           const q = query.toLowerCase();
-          return [e.name, e.planner, e.date, e.time].some((f) => f.toLowerCase().includes(q));
+          return [e.name, e.planner, e.date, e.time || '', e.endDate || '', e.endTime || ''].some((f) => f.toLowerCase().includes(q));
         })
       : events;
 

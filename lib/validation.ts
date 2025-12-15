@@ -53,7 +53,7 @@ export function validateEventData(data: any): {
     errors.date = 'Invalid date format';
   } else {
     // Parse date explicitly to avoid timezone issues
-    const [year, month, day] = data.date.split("-").map((v) => parseInt(v, 10));
+    const [year, month, day] = data.date.split("-").map((v: string) => parseInt(v, 10));
     const eventDate = new Date(year, (month ?? 1) - 1, day ?? 1);
     eventDate.setHours(0, 0, 0, 0);
     

@@ -45,15 +45,15 @@ export function generateId() {
 
 // Utilities for date/time parsing, filtering, and formatting
 export function getEventDateTime(event: EventItem): Date {
-  const [year, month, day] = event.date.split("-").map((v) => parseInt(v, 10));
+  const [year, month, day] = event.date.split("-").map((v: string) => parseInt(v, 10));
   
   // If no time specified or time is "00:00", treat as all-day event (end of day)
-  const hasNoTime = !event.time || (typeof event.time === 'string' && (event.time.trim() === '' || event.time === '00:00'));
-  if (hasNoTime) {
+  if (!event.time || (typeof event.time === 'string' && (event.time.trim() === '' || event.time === '00:00'))) {
     return new Date(year, (month ?? 1) - 1, day ?? 1, 23, 59, 59, 999);
   }
   
-  const [hour, minute] = event.time.split(":").map((v) => parseInt(v, 10));
+  // At this point, TypeScript knows event.time is a non-empty string
+  const [hour, minute] = event.time.split(":").map((v: string) => parseInt(v, 10));
   return new Date(year, (month ?? 1) - 1, day ?? 1, hour ?? 0, minute ?? 0, 0, 0);
 }
 
@@ -61,14 +61,14 @@ export function getEventEndDateTime(event: EventItem): Date | null {
   // For multi-day events, return the end date/time
   if (!event.endDate) return null;
   
-  const [year, month, day] = event.endDate.split("-").map((v) => parseInt(v, 10));
+  const [year, month, day] = event.endDate.split("-").map((v: string) => parseInt(v, 10));
   
   // If no end time specified, treat as end of day
   if (!event.endTime || event.endTime.trim() === '') {
     return new Date(year, (month ?? 1) - 1, day ?? 1, 23, 59, 59, 999);
   }
   
-  const [hour, minute] = event.endTime.split(":").map((v) => parseInt(v, 10));
+  const [hour, minute] = event.endTime.split(":").map((v: string) => parseInt(v, 10));
   return new Date(year, (month ?? 1) - 1, day ?? 1, hour ?? 23, minute ?? 59, 0, 0);
 }
 
@@ -108,7 +108,7 @@ export function isPastEvent(event: EventItem, now: Date = new Date()): boolean {
     // Parse date explicitly - compare dates only, not times
     // For all-day events, compare the date itself (not end of day)
     // This avoids timezone issues when converting to UTC
-    const [year, month, day] = event.date.split("-").map((v) => parseInt(v, 10));
+    const [year, month, day] = event.date.split("-").map((v: string) => parseInt(v, 10));
     const eventDate = new Date(year, (month ?? 1) - 1, day ?? 1);
     // Set both to midnight local time for fair comparison
     eventDate.setHours(0, 0, 0, 0);
