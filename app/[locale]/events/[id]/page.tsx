@@ -12,17 +12,41 @@ import { es } from "@/lib/i18n/dictionaries/es";
 import { supportedLocales, type SupportedLocale } from "@/lib/i18n/locales";
 
 export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
+// Generate static params for known events at build time (optional, but helps with route recognition)
+export async function generateStaticParams() {
+  try {
+    // Try to fetch events at build time to pre-generate routes
+    const events = await getStorage().listFresh();
+    const params: Array<{ id: string; locale: string }> = [];
+    
+    // Generate params for all locales and events
+    for (const locale of supportedLocales) {
+      for (const event of events.slice(0, 100)) { // Limit to first 100 to avoid build timeout
+        params.push({ id: event.id, locale });
+      }
+    }
+    
+    return params;
+  } catch (error) {
+    // If build-time fetch fails, return empty array - routes will still work at runtime
+    console.warn('Could not generate static params for events:', error);
+    return [];
+  }
+}
 
 export default async function EventDetail({ 
   params 
 }: { 
-  params: { id: string; locale: string } 
+  params: Promise<{ id: string; locale: string }>
 }) {
-  const locale = (params.locale as SupportedLocale) || 'en';
+  const { id, locale: localeParam } = await params;
+  const locale = (localeParam as SupportedLocale) || 'en';
   if (!supportedLocales.includes(locale)) notFound();
   const dict = locale === "es" ? es : en;
 
-  const item = await getStorage().get(params.id);
+  const item = await getStorage().get(id);
   if (!item) notFound();
   
   return (
