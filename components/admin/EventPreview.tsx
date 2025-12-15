@@ -3,6 +3,7 @@ import React from "react";
 import { Eye, Calendar, Clock, User, ExternalLink, X } from "lucide-react";
 import moment from "moment";
 import type { EventItem } from "@/lib/events";
+import { formatEventDateRange } from "@/lib/events";
 
 interface EventPreviewProps {
   event: Partial<EventItem>;
@@ -74,13 +75,9 @@ export default function EventPreview({ event, onClose }: EventPreviewProps) {
               <div className="space-y-2 mb-4">
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <Calendar className="h-4 w-4" />
-                  <span>{formatDate(event.date)}</span>
-                  {event.time && (
-                    <>
-                      <Clock className="h-4 w-4 ml-2" />
-                      <span>{formatTime(event.time)}</span>
-                    </>
-                  )}
+                  <span>
+                    {event.date ? formatEventDateRange(event as EventItem) : 'No date set'}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -141,7 +138,7 @@ export default function EventPreview({ event, onClose }: EventPreviewProps) {
 
           {/* Validation Warnings */}
           <div className="mt-4">
-            {(!event.name || !event.date || !event.time || !event.planner) && (
+            {(!event.name || !event.date || !event.planner) && (
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <div className="bg-yellow-100 p-2 rounded-full">
@@ -154,7 +151,6 @@ export default function EventPreview({ event, onClose }: EventPreviewProps) {
                     <ul className="text-sm text-yellow-700 space-y-1">
                       {!event.name && <li>• Event name is required</li>}
                       {!event.date && <li>• Event date is required</li>}
-                      {!event.time && <li>• Event time is required</li>}
                       {!event.planner && <li>• Planner name is required</li>}
                     </ul>
                     <p className="text-sm text-yellow-700 mt-2">

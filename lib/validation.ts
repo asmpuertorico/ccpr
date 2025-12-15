@@ -52,24 +52,83 @@ export function validateEventData(data: any): {
   } else if (!validator.isDate(data.date)) {
     errors.date = 'Invalid date format';
   } else {
-    const eventDate = new Date(data.date);
+    // Parse date explicitly to avoid timezone issues
+    const [year, month, day] = data.date.split("-").map((v) => parseInt(v, 10));
+    const eventDate = new Date(year, (month ?? 1) - 1, day ?? 1);
+    eventDate.setHours(0, 0, 0, 0);
+    
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     
-    if (eventDate < today) {
+    if (eventDate.getTime() < today.getTime()) {
       errors.date = 'Event date cannot be in the past';
     } else {
       sanitizedData.date = data.date;
     }
   }
 
-  // Time validation
-  if (!data.time || typeof data.time !== 'string') {
-    errors.time = 'Event time is required';
-  } else if (!validator.matches(data.time, /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
-    errors.time = 'Invalid time format (HH:MM)';
+  // Time validation (optional)
+  if (data.time !== undefined && data.time !== null && data.time !== '') {
+    if (typeof data.time !== 'string') {
+      errors.time = 'Time must be a string';
+    } else if (!validator.matches(data.time, /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
+      errors.time = 'Invalid time format (HH:MM)';
+    } else {
+      sanitizedData.time = data.time;
+    }
   } else {
-    sanitizedData.time = data.time;
+    sanitizedData.time = '';
+  }
+
+  // End date validation (optional, but must be after start date if provided)
+  if (data.endDate !== undefined && data.endDate !== null && data.endDate !== '') {
+    if (typeof data.endDate !== 'string') {
+      errors.endDate = 'End date must be a string';
+    } else if (!validator.isDate(data.endDate)) {
+      errors.endDate = 'Invalid end date format';
+    } else {
+      const startDate = new Date(data.date);
+      const endDate = new Date(data.endDate);
+      startDate.setHours(0, 0, 0, 0);
+      endDate.setHours(0, 0, 0, 0);
+      
+      if (endDate < startDate) {
+        errors.endDate = 'End date must be after or equal to start date';
+      } else {
+        sanitizedData.endDate = data.endDate;
+      }
+    }
+  } else {
+    sanitizedData.endDate = '';
+  }
+
+  // End time validation (optional, but requires endDate if provided)
+  if (data.endTime !== undefined && data.endTime !== null && data.endTime !== '') {
+    if (!data.endDate || !data.endDate.trim()) {
+      errors.endTime = 'End time requires an end date';
+    } else if (typeof data.endTime !== 'string') {
+      errors.endTime = 'End time must be a string';
+    } else if (!validator.matches(data.endTime, /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
+      errors.endTime = 'Invalid end time format (HH:MM)';
+    } else {
+      // If endDate equals start date, endTime should be after start time
+      if (data.endDate === data.date && data.time && data.time.trim()) {
+        const [startHour, startMinute] = data.time.split(':').map(Number);
+        const [endHour, endMinute] = data.endTime.split(':').map(Number);
+        const startMinutes = startHour * 60 + startMinute;
+        const endMinutes = endHour * 60 + endMinute;
+        
+        if (endMinutes <= startMinutes) {
+          errors.endTime = 'End time must be after start time when on the same day';
+        } else {
+          sanitizedData.endTime = data.endTime;
+        }
+      } else {
+        sanitizedData.endTime = data.endTime;
+      }
+    }
+  } else {
+    sanitizedData.endTime = '';
   }
 
   // Image validation (optional)

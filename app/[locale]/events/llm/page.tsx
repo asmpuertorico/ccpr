@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import { getAllEventsWithFullData } from "@/lib/storage";
-import { getEventDateTime, isPastEvent, formatEventDate, formatEventTime } from "@/lib/events";
+import { getEventDateTime, isPastEvent, formatEventDate, formatEventTime, formatEventDateRange } from "@/lib/events";
 
 type LLMEvent = {
   id: string;
@@ -16,7 +16,10 @@ type LLMEvent = {
   description?: string;
   date: string;
   time: string;
+  endDate?: string;
+  endTime?: string;
   dateTime: string;
+  endDateTime?: string;
   formattedDate: string;
   formattedTime: string;
   formattedDateTime: string;
@@ -35,16 +38,25 @@ async function getLLMEvents(baseUrl: string): Promise<LLMEvent[]> {
   const events = await getAllEventsWithFullData();
   
   return events.map(event => {
-    const eventDateTime = getEventDateTime({
+    const eventItem = {
       id: event.id,
       name: event.name,
       date: event.date,
       time: event.time,
+      endDate: event.endDate,
+      endTime: event.endTime,
       planner: event.planner,
       image: event.image,
       ticketsUrl: event.ticketsUrl,
       description: event.description,
-    });
+    };
+    
+    const eventDateTime = getEventDateTime(eventItem);
+    const endDateTime = event.endDate ? (() => {
+      const [year, month, day] = event.endDate.split("-").map((v) => parseInt(v, 10));
+      const [hour, minute] = (event.endTime || "23:59").split(":").map((v) => parseInt(v, 10));
+      return new Date(year, (month ?? 1) - 1, day ?? 1, hour ?? 23, minute ?? 59, 0, 0);
+    })() : undefined;
     
     let imageUrl = event.image || '';
     if (imageUrl && !imageUrl.startsWith('http')) {
@@ -55,31 +67,12 @@ async function getLLMEvents(baseUrl: string): Promise<LLMEvent[]> {
       }
     }
     
-    const formattedDate = formatEventDate({
-      id: event.id,
-      name: event.name,
-      date: event.date,
-      time: event.time,
-      planner: event.planner,
-      image: event.image,
-      ticketsUrl: event.ticketsUrl,
-      description: event.description,
-    });
+    // Use the new date range formatter
+    const formattedDateTime = formatEventDateRange(eventItem);
     
-    const formattedTime = formatEventTime({
-      id: event.id,
-      name: event.name,
-      date: event.date,
-      time: event.time,
-      planner: event.planner,
-      image: event.image,
-      ticketsUrl: event.ticketsUrl,
-      description: event.description,
-    });
-    
-    const formattedDateTime = formattedTime 
-      ? `${formattedDate} at ${formattedTime}`
-      : formattedDate;
+    // For backward compatibility, also provide separate formattedDate and formattedTime
+    const formattedDate = formatEventDate(eventItem);
+    const formattedTime = formatEventTime(eventItem);
     
     return {
       id: event.id,
@@ -87,24 +80,18 @@ async function getLLMEvents(baseUrl: string): Promise<LLMEvent[]> {
       planner: event.planner,
       description: event.description,
       date: event.date,
-      time: event.time,
+      time: event.time || '',
+      endDate: event.endDate,
+      endTime: event.endTime,
       dateTime: eventDateTime.toISOString(),
+      endDateTime: endDateTime?.toISOString(),
       formattedDate,
       formattedTime,
       formattedDateTime,
       imageUrl,
       ticketsUrl: event.ticketsUrl,
       status: event.status,
-      isPast: isPastEvent({
-        id: event.id,
-        name: event.name,
-        date: event.date,
-        time: event.time,
-        planner: event.planner,
-        image: event.image,
-        ticketsUrl: event.ticketsUrl,
-        description: event.description,
-      }),
+      isPast: isPastEvent(eventItem),
       createdAt: typeof event.createdAt === 'string' ? event.createdAt : new Date(event.createdAt).toISOString(),
       updatedAt: typeof event.updatedAt === 'string' ? event.updatedAt : new Date(event.updatedAt).toISOString(),
       createdBy: event.createdBy,
@@ -121,29 +108,32 @@ function generateJSONLD(events: LLMEvent[], baseUrl: string) {
     "name": "Puerto Rico Convention Center Events",
     "description": "List of upcoming and past events at the Puerto Rico Convention Center",
     "numberOfItems": events.length,
-    "itemListElement": events.map((event, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Event",
-        "@id": `${baseUrl}/events/${event.id}`,
-        "name": event.name,
-        "description": event.description || "",
-        "startDate": event.dateTime,
-        "organizer": {
-          "@type": "Organization",
-          "name": event.planner,
-        },
-        "image": event.imageUrl,
-        ...(event.ticketsUrl && {
-          "offers": {
-            "@type": "Offer",
-            "url": event.ticketsUrl,
-            "availability": "https://schema.org/InStock",
+    "itemListElement": events.map((event, index) => {
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Event",
+          "@id": `${baseUrl}/events/${event.id}`,
+          "name": event.name,
+          "description": event.description || "",
+          "startDate": event.dateTime,
+          ...(event.endDateTime && { "endDate": event.endDateTime }),
+          "organizer": {
+            "@type": "Organization",
+            "name": event.planner,
           },
-        }),
-      },
-    })),
+          "image": event.imageUrl,
+          ...(event.ticketsUrl && {
+            "offers": {
+              "@type": "Offer",
+              "url": event.ticketsUrl,
+              "availability": "https://schema.org/InStock",
+            },
+          }),
+        },
+      };
+    }),
   };
 }
 

@@ -45,12 +45,14 @@ export default function EditEventModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (event && form.name && form.date && form.time && form.planner) {
+    if (event && form.name && form.date && form.planner) {
       const updatedEvent: EventItem = {
         id: event.id,
         name: form.name,
         date: form.date,
         time: form.time,
+        endDate: form.endDate,
+        endTime: form.endTime,
         planner: form.planner,
         image: form.image || event.image,
         description: form.description || "",
@@ -124,7 +126,11 @@ export default function EditEventModal({
             <div className="space-y-6">
               <div>
                 <h4 className="font-semibold text-lg">{form.name}</h4>
-                <p className="text-sm text-gray-600">{form.date} • {form.time}</p>
+                <p className="text-sm text-gray-600">
+                  {form.date}
+                  {form.time && ` • ${form.time}`}
+                  {form.endDate && ` - ${form.endDate}${form.endTime ? ` • ${form.endTime}` : ''}`}
+                </p>
                 <p className="text-sm text-gray-600">By {form.planner}</p>
               </div>
               

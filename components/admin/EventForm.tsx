@@ -81,19 +81,39 @@ export default function EventForm({
               <Clock className="h-5 w-5 text-indigo-600" />
               <h3 className="text-lg font-semibold text-gray-900">Schedule</h3>
             </div>
-            <DateTimePicker
-              label="Event Date & Time"
-              value={form.date || ""}
-              timeValue={form.time || ""}
-              onChange={(date) => setForm({ ...form, date })}
-              onTimeChange={(time) => setForm({ ...form, time })}
-              error={validationErrors.date}
-              warning={validationWarnings.date}
-              timeError={validationErrors.time}
-              timeWarning={validationWarnings.time}
-              disabled={loading || csrfLoading}
-              required
-            />
+            <div className="space-y-6">
+              <DateTimePicker
+                label="Start Date & Time"
+                value={form.date || ""}
+                timeValue={form.time || ""}
+                onChange={(date) => setForm({ ...form, date })}
+                onTimeChange={(time) => setForm({ ...form, time })}
+                error={validationErrors.date}
+                warning={validationWarnings.date}
+                timeError={validationErrors.time}
+                timeWarning={validationWarnings.time}
+                disabled={loading || csrfLoading}
+                required
+              />
+              <div>
+                <DateTimePicker
+                  label="End Date & Time (Optional - for multi-day events)"
+                  value={form.endDate || ""}
+                  timeValue={form.endTime || ""}
+                  onChange={(endDate) => setForm({ ...form, endDate })}
+                  onTimeChange={(endTime) => setForm({ ...form, endTime })}
+                  error={validationErrors.endDate}
+                  warning={validationWarnings.endDate}
+                  timeError={validationErrors.endTime}
+                  timeWarning={validationWarnings.endTime}
+                  disabled={loading || csrfLoading}
+                  required={false}
+                />
+                <p className="text-sm text-gray-500 mt-2">
+                  Leave empty for single-day events. If provided, end date must be after or equal to start date.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Visual Content Section */}

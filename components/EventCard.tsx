@@ -1,9 +1,9 @@
 import Link from "next/link";
 import SafeEventImage from "@/components/SafeEventImage";
-import { EventItem, formatEventDate, formatEventTime } from "@/lib/events";
+import { EventItem, formatEventDateRange } from "@/lib/events";
 
 export default function EventCard({ event, buyLabel, detailsLabel, locale }: { event: EventItem; buyLabel: string; detailsLabel: string; locale: string }) {
-  const eventTime = formatEventTime(event);
+  const dateRange = formatEventDateRange(event);
 
   return (
     <div className="w-80 shrink-0 bg-white rounded-3xl overflow-hidden h-[460px] flex flex-col">
@@ -28,17 +28,8 @@ export default function EventCard({ event, buyLabel, detailsLabel, locale }: { e
               <line x1="8" y1="3" x2="8" y2="7" />
               <line x1="3" y1="11" x2="21" y2="11" />
             </svg>
-            {formatEventDate(event)}
+            {dateRange}
           </span>
-          {eventTime && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium h-fit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              {eventTime}
-            </span>
-          )}
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium h-fit">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />

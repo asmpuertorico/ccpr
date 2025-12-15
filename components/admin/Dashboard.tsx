@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Calendar, Users, Image, TrendingUp, Clock, AlertCircle } from 'lucide-react';
 import { useToast } from "./Toast";
 import type { EventItem } from "@/lib/events";
+import { isPastEvent } from "@/lib/events";
 
 interface DashboardStats {
   totalEvents: number;
@@ -39,10 +40,10 @@ export default function Dashboard({ events }: { events: EventItem[] }) {
       const currentMonth = now.getMonth();
       const currentYear = now.getFullYear();
 
-      // Basic counts
+      // Basic counts - use isPastEvent which checks end date for multi-day events
       const totalEvents = events.length;
-      const upcomingEvents = events.filter(e => new Date(e.date) >= now).length;
-      const pastEvents = events.filter(e => new Date(e.date) < now).length;
+      const upcomingEvents = events.filter(e => !isPastEvent(e, now)).length;
+      const pastEvents = events.filter(e => isPastEvent(e, now)).length;
       const draftEvents = 0; // Will be implemented with database
 
       // Monthly statistics

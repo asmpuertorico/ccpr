@@ -186,6 +186,16 @@ export default function Footer({ locale, dict }: { locale: SupportedLocale; dict
                     {dict.footer?.discoverPuertoRico || "Discover Puerto Rico"}
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="/llm.txt" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    LLM.txt
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

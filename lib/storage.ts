@@ -53,14 +53,34 @@ async function ensureSeeded() {
     if (POSTGRES_URL) {
       try {
         const sql = neon(POSTGRES_URL);
-        const rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        // Try to fetch with new columns first, fall back to old schema if columns don't exist
+        let rows: EventItem[];
+        try {
+          rows = await sql`select id::text, name, date, time, end_date as "endDate", end_time as "endTime", planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        } catch (columnError: any) {
+          // If end_date/end_time columns don't exist, use old schema
+          if (columnError?.code === '42703' || columnError?.message?.includes('does not exist')) {
+            console.log('⚠️ New columns not found during seed, using old schema (without end_date/end_time)');
+            rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+            // Add undefined for missing fields
+            rows = rows.map(event => ({ ...event, endDate: undefined, endTime: undefined })) as EventItem[];
+          } else {
+            throw columnError;
+          }
+        }
+        console.log(`📊 Seeded ${rows.length} events from database`);
         memoryStore = rows
           .filter(isEventItem)
           .map(event => ({
             ...event,
+            // Convert null to undefined for optional fields
+            time: event.time ?? undefined,
+            endDate: event.endDate ?? undefined,
+            endTime: event.endTime ?? undefined,
             image: convertImageUrl(event.image)
           }))
           .sort(sortByDateAsc);
+        console.log(`✅ Processed ${memoryStore.length} valid events`);
         return;
       } catch (e) {
         // fall back if query fails
@@ -101,15 +121,34 @@ async function persistToNeon(data: EventItem[]): Promise<void> {
   // Use transaction to upsert/replace: simplest is truncate and bulk insert for this demo
   await sql`begin`;
   try {
+    // Check if new columns exist
+    let hasNewColumns = false;
+    try {
+      await sql`select end_date, end_time from events limit 1`;
+      hasNewColumns = true;
+      console.log('✅ Database has end_date and end_time columns');
+    } catch {
+      hasNewColumns = false;
+      console.log('⚠️ Database does not have end_date and end_time columns, using old schema');
+    }
+    
     await sql`truncate table events`;
     for (const e of data) {
-      // Insert with proper UUID (after migration, all IDs should be valid UUIDs)
-      await sql`insert into events (id, name, date, time, planner, image, tickets_url, description)
-                values (${e.id}::uuid, ${e.name}, ${e.date}, ${e.time}, ${e.planner}, ${e.image}, ${e.ticketsUrl ?? null}, ${e.description ?? null})`;
+      if (hasNewColumns) {
+        // Insert with new columns
+        await sql`insert into events (id, name, date, time, end_date, end_time, planner, image, tickets_url, description)
+                  values (${e.id}::uuid, ${e.name}, ${e.date}, ${e.time ?? null}, ${e.endDate ?? null}, ${e.endTime ?? null}, ${e.planner}, ${e.image}, ${e.ticketsUrl ?? null}, ${e.description ?? null})`;
+      } else {
+        // Insert without new columns (backward compatibility)
+        await sql`insert into events (id, name, date, time, planner, image, tickets_url, description)
+                  values (${e.id}::uuid, ${e.name}, ${e.date}, ${e.time ?? null}, ${e.planner}, ${e.image}, ${e.ticketsUrl ?? null}, ${e.description ?? null})`;
+      }
     }
     await sql`commit`;
+    console.log(`✅ Persisted ${data.length} events to database`);
   } catch (err) {
     await sql`rollback`;
+    console.error('❌ Failed to persist events to database:', err);
     throw err;
   }
 }
@@ -130,14 +169,34 @@ const inMemoryProvider: StorageProvider = {
     if (POSTGRES_URL) {
       try {
         const sql = neon(POSTGRES_URL);
-        const rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        // Try to fetch with new columns first, fall back to old schema if columns don't exist
+        let rows: EventItem[];
+        try {
+          rows = await sql`select id::text, name, date, time, end_date as "endDate", end_time as "endTime", planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+        } catch (columnError: any) {
+          // If end_date/end_time columns don't exist, use old schema
+          if (columnError?.code === '42703' || columnError?.message?.includes('does not exist')) {
+            console.log('⚠️ New columns not found, using old schema (without end_date/end_time)');
+            rows = await sql`select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description from events order by date desc, time desc` as EventItem[];
+            // Add undefined for missing fields
+            rows = rows.map(event => ({ ...event, endDate: undefined, endTime: undefined })) as EventItem[];
+          } else {
+            throw columnError;
+          }
+        }
+        console.log(`📊 Fetched ${rows.length} events from database`);
         const fresh = rows
           .filter(isEventItem)
           .map(event => ({
             ...event,
+            // Convert null to undefined for optional fields
+            time: event.time ?? undefined,
+            endDate: event.endDate ?? undefined,
+            endTime: event.endTime ?? undefined,
             image: convertImageUrl(event.image)
           }))
           .sort(sortByDateAsc);
+        console.log(`✅ Processed ${fresh.length} valid events`);
         // Update memory cache with fresh data
         memoryStore = fresh;
         return fresh;
@@ -213,7 +272,9 @@ export type EnhancedEvent = {
   id: string;
   name: string;
   date: string;
-  time: string;
+  time?: string;
+  endDate?: string;
+  endTime?: string;
   planner: string;
   image: string;
   ticketsUrl?: string;
@@ -234,29 +295,67 @@ export async function getAllEventsWithFullData(): Promise<EnhancedEvent[]> {
   if (POSTGRES_URL) {
     try {
       const sql = neon(POSTGRES_URL);
-      const rows = await sql`
-        select 
-          id::text,
-          name,
-          date,
-          time,
-          planner,
-          image,
-          tickets_url as "ticketsUrl",
-          description,
-          status,
-          created_at as "createdAt",
-          updated_at as "updatedAt",
-          created_by as "createdBy",
-          updated_by as "updatedBy",
-          version,
-          is_deleted as "isDeleted",
-          deleted_at as "deletedAt",
-          deleted_by as "deletedBy"
-        from events
-        where is_deleted = false and status = 'published'
-        order by date asc, time asc
-      ` as EnhancedEvent[];
+      // Try to fetch with new columns first, fall back to old schema if columns don't exist
+      let rows: EnhancedEvent[];
+      try {
+        rows = await sql`
+          select 
+            id::text,
+            name,
+            date,
+            time,
+            end_date as "endDate",
+            end_time as "endTime",
+            planner,
+            image,
+            tickets_url as "ticketsUrl",
+            description,
+            status,
+            created_at as "createdAt",
+            updated_at as "updatedAt",
+            created_by as "createdBy",
+            updated_by as "updatedBy",
+            version,
+            is_deleted as "isDeleted",
+            deleted_at as "deletedAt",
+            deleted_by as "deletedBy"
+          from events
+          where is_deleted = false and status = 'published'
+          order by date asc, time asc
+        ` as EnhancedEvent[];
+      } catch (columnError: any) {
+        // If end_date/end_time columns don't exist, use old schema
+        if (columnError?.code === '42703' || columnError?.message?.includes('does not exist')) {
+          console.log('⚠️ New columns not found in getAllEventsWithFullData, using old schema');
+          rows = await sql`
+            select 
+              id::text,
+              name,
+              date,
+              time,
+              planner,
+              image,
+              tickets_url as "ticketsUrl",
+              description,
+              status,
+              created_at as "createdAt",
+              updated_at as "updatedAt",
+              created_by as "createdBy",
+              updated_by as "updatedBy",
+              version,
+              is_deleted as "isDeleted",
+              deleted_at as "deletedAt",
+              deleted_by as "deletedBy"
+            from events
+            where is_deleted = false and status = 'published'
+            order by date asc, time asc
+          ` as EnhancedEvent[];
+          // Add undefined for missing fields
+          rows = rows.map(event => ({ ...event, endDate: undefined, endTime: undefined })) as EnhancedEvent[];
+        } else {
+          throw columnError;
+        }
+      }
       
       return rows.map(event => ({
         ...event,

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getStorage } from "@/lib/storage";
-import { formatEventDate, formatEventTime } from "@/lib/events";
+import { formatEventDateRange } from "@/lib/events";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
@@ -81,16 +81,7 @@ export default async function EventDetail({
                         <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="font-medium">{formatEventDate(item)}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-teal flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="font-medium">{formatEventTime(item)}</span>
+                    <span className="font-medium">{formatEventDateRange(item)}</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
@@ -136,25 +127,15 @@ export default async function EventDetail({
               )}
 
               {/* Event Details Grid */}
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="text-center p-6 bg-white border border-gray-200 rounded-lg">
                   <div className="w-12 h-12 bg-sky rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-6 h-6 text-ocean" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Date</h3>
-                  <p className="text-gray-600 text-sm">{formatEventDate(item)}</p>
-                </div>
-
-                <div className="text-center p-6 bg-white border border-gray-200 rounded-lg">
-                  <div className="w-12 h-12 bg-sky rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Time</h3>
-                  <p className="text-gray-600 text-sm">{formatEventTime(item)}</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Date & Time</h3>
+                  <p className="text-gray-600 text-sm">{formatEventDateRange(item)}</p>
                 </div>
 
                 <div className="text-center p-6 bg-white border border-gray-200 rounded-lg">

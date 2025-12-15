@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllEventsWithFullData } from "@/lib/storage";
-import { getEventDateTime, isPastEvent, formatEventDate, formatEventTime } from "@/lib/events";
+import { getEventDateTime, isPastEvent, formatEventDate, formatEventTime, formatEventDateRange } from "@/lib/events";
 
 // Enhanced event type for LLM consumption
 type LLMEvent = {
@@ -13,10 +13,13 @@ type LLMEvent = {
   // Date and time information
   date: string; // YYYY-MM-DD
   time: string; // HH:MM
-  dateTime: string; // ISO 8601 format
+  endDate?: string; // YYYY-MM-DD (optional, for multi-day events)
+  endTime?: string; // HH:MM (optional, for multi-day events)
+  dateTime: string; // ISO 8601 format (start)
+  endDateTime?: string; // ISO 8601 format (end, for multi-day events)
   formattedDate: string; // e.g., "Jan, 15"
   formattedTime: string; // e.g., "7:00 PM" or empty string
-  formattedDateTime: string; // Combined formatted date and time
+  formattedDateTime: string; // Combined formatted date and time (may include range)
   
   // Media and links
   imageUrl: string; // Full absolute URL
@@ -38,16 +41,20 @@ function transformEventForLLM(
   event: Awaited<ReturnType<typeof getAllEventsWithFullData>>[0],
   baseUrl: string
 ): LLMEvent {
-  const eventDateTime = getEventDateTime({
+  const eventItem = {
     id: event.id,
     name: event.name,
     date: event.date,
     time: event.time,
+    endDate: event.endDate,
+    endTime: event.endTime,
     planner: event.planner,
     image: event.image,
     ticketsUrl: event.ticketsUrl,
     description: event.description,
-  });
+  };
+  
+  const eventDateTime = getEventDateTime(eventItem);
   
   // Convert image to absolute URL
   let imageUrl = event.image || '';
@@ -59,32 +66,19 @@ function transformEventForLLM(
     }
   }
   
-  // Format date and time
-  const formattedDate = formatEventDate({
-    id: event.id,
-    name: event.name,
-    date: event.date,
-    time: event.time,
-    planner: event.planner,
-    image: event.image,
-    ticketsUrl: event.ticketsUrl,
-    description: event.description,
-  });
+  // Calculate end date/time for multi-day events
+  const endDateTime = event.endDate ? (() => {
+    const [year, month, day] = event.endDate.split("-").map((v) => parseInt(v, 10));
+    const [hour, minute] = (event.endTime || "23:59").split(":").map((v) => parseInt(v, 10));
+    return new Date(year, (month ?? 1) - 1, day ?? 1, hour ?? 23, minute ?? 59, 0, 0);
+  })() : undefined;
   
-  const formattedTime = formatEventTime({
-    id: event.id,
-    name: event.name,
-    date: event.date,
-    time: event.time,
-    planner: event.planner,
-    image: event.image,
-    ticketsUrl: event.ticketsUrl,
-    description: event.description,
-  });
+  // Format date and time using the new date range formatter
+  const formattedDateTime = formatEventDateRange(eventItem);
   
-  const formattedDateTime = formattedTime 
-    ? `${formattedDate} at ${formattedTime}`
-    : formattedDate;
+  // For backward compatibility, also provide separate formattedDate and formattedTime
+  const formattedDate = formatEventDate(eventItem);
+  const formattedTime = formatEventTime(eventItem);
   
   // Create ISO datetime string
   const dateTime = eventDateTime.toISOString();
@@ -95,24 +89,18 @@ function transformEventForLLM(
     planner: event.planner,
     description: event.description,
     date: event.date,
-    time: event.time,
+    time: event.time || '',
+    endDate: event.endDate,
+    endTime: event.endTime,
     dateTime,
+    endDateTime: endDateTime?.toISOString(),
     formattedDate,
     formattedTime,
     formattedDateTime,
     imageUrl,
     ticketsUrl: event.ticketsUrl,
     status: event.status,
-    isPast: isPastEvent({
-      id: event.id,
-      name: event.name,
-      date: event.date,
-      time: event.time,
-      planner: event.planner,
-      image: event.image,
-      ticketsUrl: event.ticketsUrl,
-      description: event.description,
-    }),
+    isPast: isPastEvent(eventItem),
     createdAt: typeof event.createdAt === 'string' ? event.createdAt : new Date(event.createdAt).toISOString(),
     updatedAt: typeof event.updatedAt === 'string' ? event.updatedAt : new Date(event.updatedAt).toISOString(),
     createdBy: event.createdBy,

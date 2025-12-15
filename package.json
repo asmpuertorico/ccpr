@@ -11,7 +11,8 @@
     "migrate-images:dry-run": "cd prconvention && node scripts/migrate-images-to-blob.js --dry-run",
     "migrate-images:cleanup": "cd prconvention && node scripts/migrate-images-to-blob.js --cleanup",
     "fix-event-ids": "node scripts/fix-event-ids.js",
-    "fix-event-ids:dry-run": "node scripts/fix-event-ids.js --dry-run"
+    "fix-event-ids:dry-run": "node scripts/fix-event-ids.js --dry-run",
+    "migrate:add-end-date-time": "node scripts/add-end-date-time-columns.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",

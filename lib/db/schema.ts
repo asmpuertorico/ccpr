@@ -6,7 +6,9 @@ export const events = pgTable('events', {
   name: text('name').notNull(),
   planner: text('planner').notNull(),
   date: text('date').notNull(), // YYYY-MM-DD format
-  time: text('time').notNull(), // HH:MM format
+  time: text('time'), // HH:MM format (optional)
+  endDate: text('end_date'), // YYYY-MM-DD format (optional, for multi-day events)
+  endTime: text('end_time'), // HH:MM format (optional, for multi-day events)
   image: text('image'),
   ticketsUrl: text('tickets_url'),
   description: text('description'),

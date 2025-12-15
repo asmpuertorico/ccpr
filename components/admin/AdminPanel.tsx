@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import type { EventItem } from "@/lib/events";
+import { isPastEvent } from "@/lib/events";
 import { useToast } from "./Toast";
 import { FormField } from "./FormField";
 import { useCSRF } from "./useCSRF";
@@ -49,17 +50,25 @@ export default function AdminPanel({ initialEvents }: Props) {
       : events;
 
     // Sort events: upcoming first, then today, then past
+    // For multi-day events, use end date to determine if past
     return result.sort((a, b) => {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+      // Use end date for multi-day events, start date for single-day events
+      const dateAStr = a.endDate || a.date;
+      const dateBStr = b.endDate || b.date;
+      const dateA = new Date(dateAStr);
+      const dateB = new Date(dateBStr);
+      dateA.setHours(0, 0, 0, 0);
+      dateB.setHours(0, 0, 0, 0);
+      
+      // Check if events are past using isPastEvent (which uses end date for multi-day events)
+      const isAPast = isPastEvent(a, today);
+      const isBPast = isPastEvent(b, today);
       
       const isAToday = dateA.getTime() === today.getTime();
       const isBToday = dateB.getTime() === today.getTime();
-      const isAPast = dateA < today;
-      const isBPast = dateB < today;
       
       // Today events first
       if (isAToday && !isBToday) return -1;
@@ -78,14 +87,20 @@ export default function AdminPanel({ initialEvents }: Props) {
     });
   }, [events, query]);
 
-  const getEventBadge = (date: string) => {
+  const getEventBadge = (event: EventItem) => {
+    // Use isPastEvent which checks end date for multi-day events
+    const isPast = isPastEvent(event);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const eventDate = new Date(date);
+    
+    // Use end date for multi-day events, start date for single-day events
+    const eventDateStr = event.endDate || event.date;
+    const eventDate = new Date(eventDateStr);
+    eventDate.setHours(0, 0, 0, 0);
     
     if (eventDate.getTime() === today.getTime()) {
       return { label: "Today", className: "bg-green-100 text-green-800" };
-    } else if (eventDate > today) {
+    } else if (!isPast) {
       return { label: "Upcoming", className: "bg-blue-100 text-blue-800" };
     } else {
       return { label: "Past", className: "bg-gray-100 text-gray-600" };
@@ -118,16 +133,58 @@ export default function AdminPanel({ initialEvents }: Props) {
     if (!formData.date) {
       errors.date = "Event date is required";
     } else {
-      const eventDate = new Date(formData.date);
+      // Parse date string manually to avoid timezone issues
+      const [year, month, day] = formData.date.split("-").map((v) => parseInt(v, 10));
+      const eventDate = new Date(year, month - 1, day);
+      eventDate.setHours(0, 0, 0, 0);
+      
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      if (eventDate < today) {
+      
+      if (eventDate.getTime() < today.getTime()) {
         warnings.date = "This event date is in the past";
       }
     }
     
-    if (!formData.time) {
-      errors.time = "Event time is required";
+    // Time is optional, but validate format if provided
+    if (formData.time && formData.time.trim()) {
+      if (!/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(formData.time)) {
+        errors.time = "Invalid time format (HH:MM)";
+      }
+    }
+    
+    // Validate end date if provided
+    if (formData.endDate && formData.endDate.trim()) {
+      const startDate = formData.date ? new Date(formData.date) : null;
+      const endDate = new Date(formData.endDate);
+      
+      if (!startDate) {
+        errors.endDate = "Start date is required when specifying end date";
+      } else {
+        startDate.setHours(0, 0, 0, 0);
+        endDate.setHours(0, 0, 0, 0);
+        if (endDate < startDate) {
+          errors.endDate = "End date must be after or equal to start date";
+        }
+      }
+    }
+    
+    // Validate end time if provided
+    if (formData.endTime && formData.endTime.trim()) {
+      if (!formData.endDate || !formData.endDate.trim()) {
+        errors.endTime = "End time requires an end date";
+      } else if (!/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(formData.endTime)) {
+        errors.endTime = "Invalid end time format (HH:MM)";
+      } else if (formData.endDate === formData.date && formData.time && formData.time.trim()) {
+        // If same day, end time must be after start time
+        const [startHour, startMinute] = formData.time.split(':').map(Number);
+        const [endHour, endMinute] = formData.endTime.split(':').map(Number);
+        const startMinutes = startHour * 60 + startMinute;
+        const endMinutes = endHour * 60 + endMinute;
+        if (endMinutes <= startMinutes) {
+          errors.endTime = "End time must be after start time when on the same day";
+        }
+      }
     }
     
     // Optional field warnings (format/content issues)
@@ -217,10 +274,14 @@ export default function AdminPanel({ initialEvents }: Props) {
         planner: form.planner || "",
         date: form.date || "",
         time: form.time || "",
+        endDate: form.endDate || "",
+        endTime: form.endTime || "",
         image: imageUrl || "",
         ticketsUrl: form.ticketsUrl || "",
         description: form.description || "",
       };
+
+      console.log('📤 Sending event creation payload:', payload);
 
       // Create new event
       const res = await fetchWithCSRF("/api/events", {
@@ -228,6 +289,12 @@ export default function AdminPanel({ initialEvents }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({ message: 'Unknown error' }));
+        console.error('❌ Event creation failed:', errorData);
+        throw new Error(errorData.message || `Failed to create event: ${res.status} ${res.statusText}`);
+      }
       
       if (res.ok) {
         const created = (await res.json()) as EventItem;
@@ -729,8 +796,8 @@ export default function AdminPanel({ initialEvents }: Props) {
                 <td className="p-2">
                   <div className="flex items-center gap-2">
                     <span className="font-medium">{e.name}</span>
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getEventBadge(e.date).className}`}>
-                      {getEventBadge(e.date).label}
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getEventBadge(e).className}`}>
+                      {getEventBadge(e).label}
                     </span>
                   </div>
                 </td>

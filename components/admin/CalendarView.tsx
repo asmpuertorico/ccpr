@@ -31,12 +31,26 @@ export default function CalendarView({ events, onEventEdit, onEventDelete }: Cal
   // Convert EventItem[] to CalendarEvent[]
   const calendarEvents: CalendarEvent[] = useMemo(() => {
     return events.map(event => {
-      const [hours, minutes] = event.time.split(':').map(Number);
+      // Use start date/time
+      const startHours = event.time ? parseInt(event.time.split(':')[0], 10) : 0;
+      const startMinutes = event.time ? parseInt(event.time.split(':')[1], 10) : 0;
       const startDate = new Date(event.date);
-      startDate.setHours(hours, minutes, 0, 0);
+      startDate.setHours(startHours, startMinutes, 0, 0);
       
-      const endDate = new Date(startDate);
-      endDate.setHours(hours + 2, minutes, 0, 0); // Default 2-hour duration
+      // Use end date/time for multi-day events, otherwise default to 2 hours after start
+      let endDate: Date;
+      if (event.endDate) {
+        endDate = new Date(event.endDate);
+        if (event.endTime) {
+          const [endHours, endMinutes] = event.endTime.split(':').map(Number);
+          endDate.setHours(endHours, endMinutes, 0, 0);
+        } else {
+          endDate.setHours(23, 59, 59, 999); // End of day if no end time
+        }
+      } else {
+        endDate = new Date(startDate);
+        endDate.setHours(startHours + 2, startMinutes, 0, 0); // Default 2-hour duration
+      }
 
       return {
         id: event.id,
