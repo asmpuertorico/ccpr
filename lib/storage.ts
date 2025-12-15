@@ -218,14 +218,64 @@ const inMemoryProvider: StorageProvider = {
   },
   async get(id) {
     await ensureSeeded();
-    const event = memoryStore!.find((e) => e.id === id);
+    let event = memoryStore!.find((e) => e.id === id);
+    
+    // If not found in memory cache, try fetching directly from database
+    if (!event && POSTGRES_URL) {
+      try {
+        const sql = neon(POSTGRES_URL);
+        let rows: EventItem[];
+        try {
+          // Try with new columns first
+          rows = await sql`
+            select id::text, name, date, time, end_date as "endDate", end_time as "endTime", planner, image, tickets_url as "ticketsUrl", description 
+            from events 
+            where id = ${id}::uuid and (is_deleted is null or is_deleted = false)
+            limit 1
+          ` as EventItem[];
+        } catch (columnError: any) {
+          // Fall back to old schema if columns don't exist
+          if (columnError?.code === '42703' || columnError?.message?.includes('does not exist')) {
+            rows = await sql`
+              select id::text, name, date, time, planner, image, tickets_url as "ticketsUrl", description 
+              from events 
+              where id = ${id}::uuid and (is_deleted is null or is_deleted = false)
+              limit 1
+            ` as EventItem[];
+            rows = rows.map(e => ({ ...e, endDate: undefined, endTime: undefined })) as EventItem[];
+          } else {
+            throw columnError;
+          }
+        }
+        
+        if (rows.length > 0) {
+          event = rows[0];
+          // Update memory cache with the fetched event
+          const existingIndex = memoryStore!.findIndex((e) => e.id === id);
+          if (existingIndex >= 0) {
+            memoryStore![existingIndex] = event;
+          } else {
+            memoryStore!.push(event);
+            memoryStore = memoryStore!.sort(sortByDateAsc);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch event from database:', error);
+        // Continue with undefined if database fetch fails
+      }
+    }
+    
     if (event) {
       return {
         ...event,
+        // Convert null to undefined for optional fields
+        time: event.time ?? undefined,
+        endDate: event.endDate ?? undefined,
+        endTime: event.endTime ?? undefined,
         image: convertImageUrl(event.image)
       };
     }
-    return event;
+    return undefined;
   },
   async create(event) {
     await ensureSeeded();
