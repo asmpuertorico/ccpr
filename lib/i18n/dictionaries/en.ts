@@ -22,6 +22,7 @@ export const en = {
     textBefore: "Your ",
     textAfter: "deserves the best venue",
     letsChat: "Let's Chat",
+    planYourEvent: "Plan Your Event",
     nextEvents: "Next Events",
   },
   cta: {

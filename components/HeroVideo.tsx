@@ -12,6 +12,7 @@ type Dict = {
     textBefore: string;
     textAfter: string;
     letsChat: string;
+    planYourEvent: string;
     nextEvents: string;
   };
 };
@@ -68,18 +69,20 @@ export default function HeroVideo({ locale, dict }: { locale: SupportedLocale; d
             <span>{dict.hero?.textAfter || "deserves the best venue"}</span>
           </h1>
           <div className="mt-4 flex gap-3">
-            <a onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("open-chat-modal")); }} href="#" className="inline-flex items-center rounded-full bg-white text-ink px-6 py-2 text-sm font-medium hover:bg-white/90">
+            <a href="#planner-form" className="inline-flex items-center rounded-full bg-white text-ink px-6 py-2 text-sm font-medium hover:bg-white/90">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">
-                <path d="M21 15a4 4 0 0 1-4 4H9l-5 4v-6a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h13a4 4 0 0 1 4 4v8z" />
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" />
               </svg>
-              {dict.hero?.letsChat || "Let's Chat"}
+              {dict.hero?.planYourEvent || "Plan Your Event"}
             </a>
             <a href="#events" className="inline-flex items-center rounded-full bg-black text-white px-6 py-2 text-sm font-medium hover:bg-black/90">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mr-2">
-                <rect x="3" y="5" width="18" height="16" rx="2" ry="2" />
-                <line x1="16" y1="3" x2="16" y2="7" />
-                <line x1="8" y1="3" x2="8" y2="7" />
-                <line x1="3" y1="11" x2="21" y2="11" />
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <polyline points="19 12 12 19 5 12" />
               </svg>
               {dict.hero?.nextEvents || "Next Events"}
             </a>

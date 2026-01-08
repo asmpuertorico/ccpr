@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import GradientDivider from "@/components/GradientDivider";
 import VisitorsSection from "@/components/VisitorsSection";
 import PartnersSection from "@/components/PartnersSection";
+import Container from "@/components/Container";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale as SupportedLocale;
@@ -42,6 +44,43 @@ export default function Home({ params }: { params: { locale: string } }) {
       <PartnersSection locale={locale} dict={dict} />
       <VisitorsSection locale={locale} dict={dict} />
         <SponsorsMarquee />
+        
+        {/* Contact Form Section for Event Planners */}
+        <section id="planner-form" className="py-20 bg-white">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-black mb-4">
+                  {dict.contact.formTitle}
+                </h2>
+                <p className="text-lg text-gray-700">
+                  {dict.contact.formSubtitle}
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+                <ContactForm
+                  dict={{
+                    name: dict.contact.formName,
+                    email: dict.contact.formEmail,
+                    phone: dict.contact.formPhone,
+                    subject: dict.contact.formSubject,
+                    message: dict.contact.formMessage,
+                    submit: dict.contact.formSubmit,
+                    submitting: dict.contact.formSubmitting,
+                    success: dict.contact.formSuccess,
+                    error: dict.contact.formError,
+                    nameRequired: dict.contact.formNameRequired,
+                    emailRequired: dict.contact.formEmailRequired,
+                    emailInvalid: dict.contact.formEmailInvalid,
+                    subjectRequired: dict.contact.formSubjectRequired,
+                    messageRequired: dict.contact.formMessageRequired,
+                  }}
+                />
+              </div>
+            </div>
+          </Container>
+        </section>
       </main>
       <Footer locale={locale} dict={dict} />
     </>
