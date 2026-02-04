@@ -182,26 +182,26 @@ export default function EventPlannersPage({ params }: { params: { locale: string
     {
       title: dict.planners?.eventPlanningGuide || "Event Planning Guide",
       description: dict.planners?.eventPlanningGuideDesc || "Comprehensive guide for planning your event",
-      filename: "Event-Planning-Guide-October-2025.pdf",
+      filename: "Event-Planning-Guide-January-2026.pdf",
       size: "2.5MB"
     },
     {
       title: dict.planners?.capacitySheet || "Capacity Sheet",
       description: dict.planners?.capacitySheetDesc || "Room capacities and configurations",
       filename: "PRCC-Capacity-Sheet-2025.pdf",
-      size: "609KB"
+      size: "692KB"
     },
     {
       title: dict.planners?.cateringMenu || "Catering Menu",
       description: dict.planners?.cateringMenuDesc || "Private events and catering options",
-      filename: "Puerto-Ricos-Convention-Center-Catering-Private-Events-Menu-DIGITAL-V.11.2023-2.pdf",
-      size: "155MB"
+      filename: "Catering-and-Private-Events-Menu-DIGITAL-2026.2.pdf",
+      size: "5.6MB"
     },
     {
       title: dict.planners?.sustainabilityGuide || "Sustainability Guide",
       description: dict.planners?.sustainabilityGuideDesc || "Environmental practices and sustainability",
       filename: "PRCC-Sustainability-Guide_compressed.pdf",
-      size: "1MB"
+      size: "1.0MB"
     },
     {
       title: dict.planners?.kitchenEquipment || "General & Kitchen Equipment",
@@ -219,7 +219,7 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       title: dict.planners?.christmasOffers || "Christmas Offers",
       description: dict.planners?.christmasOffersDesc || "Holiday event packages and offers",
       filename: "Christmas-Offers.pdf",
-      size: "1MB"
+      size: "1.0MB"
     },
     {
       title: dict.planners?.floorPlans || "Floor Plans", 
@@ -231,19 +231,19 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       title: dict.planners?.promMenu || "Prom Menu",
       description: dict.planners?.promMenuDesc || "Special menu for prom events",
       filename: "PROM-MENU-CCPR-4.pdf",
-      size: "1MB"
+      size: "1.0MB"
     },
     {
       title: dict.planners?.emergencyResponsePlan || "Emergency Response Plan",
       description: dict.planners?.emergencyResponsePlanDesc || "Emergency procedures and safety protocols",
       filename: "Emergency-Response-Plan-PRCC-REV-2025.pdf",
-      size: "1.2MB"
+      size: "2.9MB"
     },
     {
       title: dict.planners?.internetServicesForm || "Internet Services Form",
       description: dict.planners?.internetServicesFormDesc || "Internet and telecommunications services request form",
       filename: "Internet-Services-Form.pdf",
-      size: "500KB"
+      size: "559KB"
     }
   ];
 
