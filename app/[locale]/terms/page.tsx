@@ -38,6 +38,27 @@ export default function TermsOfUsePage({ params }: { params: { locale: string } 
                 </p>
               </div>
 
+              {/* Facility Policies - Prominent Section */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">{dict.terms.facilityPoliciesTitle}</h2>
+                
+                {/* Right of Admission */}
+                <div className="mb-6 p-6 bg-neutral-50 border-l-4 border-neutral-700 rounded-r-lg">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{dict.terms.admissionRightsTitle}</h3>
+                  <p className="text-gray-700 leading-relaxed font-medium">
+                    {dict.terms.admissionRightsText}
+                  </p>
+                </div>
+
+                {/* Zero Tolerance Drug Policy */}
+                <div className="p-6 bg-red-50 border-l-4 border-red-600 rounded-r-lg">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{dict.terms.drugPolicyTitle}</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {dict.terms.drugPolicyText}
+                  </p>
+                </div>
+              </section>
+
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Definitions</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">

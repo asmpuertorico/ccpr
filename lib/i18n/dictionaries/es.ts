@@ -305,6 +305,13 @@ export const es = {
     privacyPolicyText: "Por favor revisa nuestra Política de Privacidad para una discusión de qué información personal recopilamos, qué hacemos con esta información y cómo la mantenemos segura.",
     contactText: "Si tienes alguna pregunta sobre estos Términos de Uso, no dudes en contactarnos.",
     
+    // Facility Policies
+    facilityPoliciesTitle: "Políticas de la Facilidad",
+    admissionRightsTitle: "Derecho de Admisión",
+    admissionRightsText: "Nos reservamos el derecho de admisión.",
+    drugPolicyTitle: "Política de Tolerancia Cero para Drogas",
+    drugPolicyText: "Nuestra facilidad aplica una política de tolerancia cero para drogas ilegales y sustancias controladas. La posesión, el uso o la distribución de dichas sustancias está estrictamente prohibida. Las personas que infrinjan esta norma podrán ser retiradas de la propiedad sin reembolso. Si se detectan drogas en nuestros puntos de control de seguridad, se negará la entrada de inmediato. Esta política está diseñada para garantizar la seguridad y el bienestar de todos los invitados y el personal.",
+    
     // Legal sections (basic structure - full legal content requires professional translation)
     acceptanceTitle: "1. Aceptación de Términos",
     acceptanceText: "Al acceder y usar este sitio web, aceptas y acuerdas estar obligado por los términos y disposiciones de este acuerdo.",
@@ -343,6 +350,7 @@ export const es = {
     contactUs: "Contáctanos",
     discoverPuertoRico: "Descubre Puerto Rico",
     copyright: "Centro de Convenciones de Puerto Rico",
+    admissionPolicy: "Nos reservamos el derecho de admisión",
   },
 } as const;
 

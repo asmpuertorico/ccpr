@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateCSRFToken, CSRF_COOKIE_NAME } from "@/lib/csrf-server";
 import { getCurrentSession } from "@/lib/jwt";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     // Only authenticated users can get CSRF tokens

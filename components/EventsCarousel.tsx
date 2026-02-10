@@ -23,43 +23,11 @@ export default function EventsCarousel({ locale, dict }: { locale: string; dict:
         throw new Error('Failed to fetch events');
       }
       const data: { events: EventItem[] } = await response.json();
-      console.log('📥 EventsCarousel: Received', data?.events?.length || 0, 'events from API');
-      
-      // Log first few events to see their structure
-      if (data?.events && data.events.length > 0) {
-        console.log('📋 Sample events from API:', data.events.slice(0, 3).map(e => ({
-          name: e.name,
-          date: e.date,
-          time: e.time,
-          timeType: typeof e.time,
-          timeValue: JSON.stringify(e.time),
-          endDate: e.endDate,
-          endTime: e.endTime,
-          hasAllFields: !!e.id && !!e.name && !!e.date && !!e.planner && !!e.image
-        })));
-      }
       
       const now = new Date();
-      console.log('🕐 Current time for filtering:', now.toISOString(), 'Local:', now.toString());
-      
       const future = (data?.events ?? [])
-        .filter((e, index) => {
-          console.log(`\n🔍 Filtering event ${index + 1}/${data?.events?.length || 0}:`, e.name);
-          const isPast = isPastEvent(e, now);
-          if (isPast) {
-            console.log('❌ FILTERED OUT - Past event:', e.name, 'Date:', e.date, 'Time:', e.time);
-          } else {
-            console.log('✅ KEPT - Future event:', e.name, 'Date:', e.date, 'Time:', e.time);
-          }
-          return !isPast;
-        })
+        .filter((e) => !isPastEvent(e, now))
         .sort(sortByDateAsc);
-      
-      console.log('\n📊 Filtering Summary:');
-      console.log('  Total events:', data?.events?.length || 0);
-      console.log('  Upcoming events:', future.length);
-      console.log('  Filtered out:', (data?.events?.length || 0) - future.length);
-      console.log('✅ EventsCarousel: Showing', future.length, 'upcoming events');
       
       setEvents(future);
     } catch (err) {

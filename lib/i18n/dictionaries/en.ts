@@ -305,6 +305,13 @@ export const en = {
     privacyPolicyText: "Please review our Privacy Policy for a discussion of what personal information we collect, what we do with this information, and how we keep it safe.",
     contactText: "If you have any questions about these Terms of Use, please don't hesitate to contact us.",
     
+    // Facility Policies
+    facilityPoliciesTitle: "Facility Policies",
+    admissionRightsTitle: "Right of Admission",
+    admissionRightsText: "We reserve the right of admission.",
+    drugPolicyTitle: "Zero Tolerance Drug Policy",
+    drugPolicyText: "Our facility enforces a zero-tolerance policy for illegal drugs and controlled substances. Possession, use, or distribution of such substances is strictly prohibited. Individuals found in violation of this policy may be removed from the property without refund. If drugs are detected at our security checkpoints, entry will be immediately denied. This policy is designed to ensure the safety and well-being of all guests and staff.",
+    
     // Legal sections (keeping concise for space - full legal content would be handled by legal team)
     acceptanceTitle: "1. Acceptance of Terms",
     acceptanceText: "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.",
@@ -343,6 +350,7 @@ export const en = {
     contactUs: "Contact Us",
     discoverPuertoRico: "Discover Puerto Rico",
     copyright: "Puerto Rico Convention Center",
+    admissionPolicy: "We reserve the right of admission",
   },
 } as const;
 

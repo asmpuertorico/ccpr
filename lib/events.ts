@@ -73,36 +73,15 @@ export function getEventEndDateTime(event: EventItem): Date | null {
 }
 
 export function isPastEvent(event: EventItem, now: Date = new Date()): boolean {
-  console.log('🔍 isPastEvent check:', {
-    name: event.name,
-    date: event.date,
-    time: event.time,
-    timeType: typeof event.time,
-    timeValue: JSON.stringify(event.time),
-    endDate: event.endDate,
-    endTime: event.endTime,
-    now: now.toISOString()
-  });
-  
   // For multi-day events, check if end date/time has passed
   const endDateTime = getEventEndDateTime(event);
   if (endDateTime) {
-    const isPast = endDateTime.getTime() < now.getTime();
-    console.log('  📅 Multi-day event - endDateTime:', endDateTime.toISOString(), 'isPast:', isPast);
-    return isPast;
+    return endDateTime.getTime() < now.getTime();
   }
   
   // For single-day events, check start date/time
   // If no time specified or time is "00:00", treat as all-day event (valid until end of day)
   const hasNoTime = !event.time || (typeof event.time === 'string' && (event.time.trim() === '' || event.time === '00:00'));
-  console.log('  ⏰ hasNoTime check:', {
-    '!event.time': !event.time,
-    'typeof event.time': typeof event.time,
-    'event.time === string': typeof event.time === 'string',
-    'event.time.trim() === ""': typeof event.time === 'string' ? event.time.trim() === '' : 'N/A',
-    'event.time === "00:00"': event.time === '00:00',
-    'hasNoTime result': hasNoTime
-  });
   
   if (hasNoTime) {
     // Parse date explicitly - compare dates only, not times
@@ -114,23 +93,11 @@ export function isPastEvent(event: EventItem, now: Date = new Date()): boolean {
     eventDate.setHours(0, 0, 0, 0);
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     today.setHours(0, 0, 0, 0);
-    const isPast = eventDate.getTime() < today.getTime();
-    console.log('  📆 All-day event - eventDate:', eventDate.toISOString(), 'today:', today.toISOString(), 'isPast:', isPast, {
-      eventDateMs: eventDate.getTime(),
-      todayMs: today.getTime(),
-      diff: today.getTime() - eventDate.getTime(),
-      eventDateLocal: eventDate.toString(),
-      todayLocal: today.toString(),
-      eventDateOnly: `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`,
-      todayOnly: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
-    });
-    return isPast;
+    return eventDate.getTime() < today.getTime();
   }
   
   const eventDateTime = getEventDateTime(event);
-  const isPast = eventDateTime.getTime() < now.getTime();
-  console.log('  🕐 Timed event - eventDateTime:', eventDateTime.toISOString(), 'isPast:', isPast);
-  return isPast;
+  return eventDateTime.getTime() < now.getTime();
 }
 
 export function formatEventDate(event: EventItem): string {

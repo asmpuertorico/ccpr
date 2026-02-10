@@ -33,6 +33,7 @@ type Dict = {
     contactUs: string;
     discoverPuertoRico: string;
     copyright: string;
+    admissionPolicy: string;
   };
 };
 
@@ -200,7 +201,15 @@ export default function Footer({ locale, dict }: { locale: SupportedLocale; dict
             </div>
           </div>
         </div>
-        <div className="mt-6 border-t border-white/10 pt-6 flex items-center justify-between text-xs text-white/70">
+        
+        {/* Admission Policy Statement */}
+        <div className="mt-6 pt-6 border-t border-white/10">
+          <p className="text-center text-sm text-white/90 font-medium">
+            {dict.footer?.admissionPolicy || "We reserve the right of admission"}
+          </p>
+        </div>
+        
+        <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/70">
           <p>© {new Date().getFullYear()} {dict.footer?.copyright || "Puerto Rico Convention Center"}</p>
           <div className="flex items-center gap-4">
             <a href="https://www.instagram.com/prconvention/" aria-label="Instagram" target="_blank" rel="noreferrer" className="hover:text-sky">

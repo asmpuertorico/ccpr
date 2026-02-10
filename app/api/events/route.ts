@@ -34,18 +34,12 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    console.log('📥 POST /api/events - Received data:', JSON.stringify(body, null, 2));
     
     // Validate and sanitize input
     const validation = validateEventData(body);
-    console.log('✅ Validation result:', {
-      isValid: validation.isValid,
-      errors: validation.errors,
-      sanitizedData: validation.sanitizedData
-    });
     
     if (!validation.isValid) {
-      console.error('❌ Validation failed:', validation.errors);
+      console.error('Event validation failed:', validation.errors);
       return NextResponse.json({ 
         message: "Validation failed", 
         errors: validation.errors 
