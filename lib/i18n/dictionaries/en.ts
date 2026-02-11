@@ -351,6 +351,7 @@ export const en = {
     discoverPuertoRico: "Discover Puerto Rico",
     copyright: "Puerto Rico Convention Center",
     admissionPolicy: "We reserve the right of admission",
+    drugPolicy: "Our facility enforces a zero-tolerance policy for illegal drugs and controlled substances. Possession, use, or distribution of such substances is strictly prohibited. Individuals found in violation of this policy may be removed from the property without refund. If drugs are detected at our security checkpoints, entry will be immediately denied. This policy is designed to ensure the safety and well-being of all guests and staff.",
   },
 } as const;
 

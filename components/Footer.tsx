@@ -34,6 +34,7 @@ type Dict = {
     discoverPuertoRico: string;
     copyright: string;
     admissionPolicy: string;
+    drugPolicy: string;
   };
 };
 
@@ -202,10 +203,16 @@ export default function Footer({ locale, dict }: { locale: SupportedLocale; dict
           </div>
         </div>
         
-        {/* Admission Policy Statement */}
-        <div className="mt-6 pt-6 border-t border-white/10">
+        {/* Facility Policies Section */}
+        <div className="mt-6 pt-6 border-t border-white/10 space-y-4">
+          {/* Admission Policy */}
           <p className="text-center text-sm text-white/90 font-medium">
             {dict.footer?.admissionPolicy || "We reserve the right of admission"}
+          </p>
+          
+          {/* Drug Policy */}
+          <p className="text-center text-xs text-white/80 leading-relaxed max-w-4xl mx-auto">
+            {dict.footer?.drugPolicy || "Our facility enforces a zero-tolerance policy for illegal drugs and controlled substances. Possession, use, or distribution of such substances is strictly prohibited. Individuals found in violation of this policy may be removed from the property without refund. If drugs are detected at our security checkpoints, entry will be immediately denied. This policy is designed to ensure the safety and well-being of all guests and staff."}
           </p>
         </div>
         

@@ -351,6 +351,7 @@ export const es = {
     discoverPuertoRico: "Descubre Puerto Rico",
     copyright: "Centro de Convenciones de Puerto Rico",
     admissionPolicy: "Nos reservamos el derecho de admisión",
+    drugPolicy: "Nuestra facilidad aplica una política de tolerancia cero para drogas ilegales y sustancias controladas. La posesión, el uso o la distribución de dichas sustancias está estrictamente prohibida. Las personas que infrinjan esta norma podrán ser retiradas de la propiedad sin reembolso. Si se detectan drogas en nuestros puntos de control de seguridad, se negará la entrada de inmediato. Esta política está diseñada para garantizar la seguridad y el bienestar de todos los invitados y el personal.",
   },
 } as const;
 
