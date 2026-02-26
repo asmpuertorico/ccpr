@@ -42,23 +42,21 @@ export default function Home({ params }: { params: { locale: string } }) {
                   </div>
       </section>
       <PartnersSection locale={locale} dict={dict} />
-      <VisitorsSection locale={locale} dict={dict} />
-        <SponsorsMarquee />
-        
+
         {/* Contact Form Section for Event Planners */}
-        <section id="planner-form" className="py-20 bg-white">
+        <section id="planner-form" className="py-20 bg-neutral-900">
           <Container>
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-black mb-4">
+                <h2 className="text-4xl font-bold text-white mb-4">
                   {dict.contact.formTitle}
                 </h2>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-neutral-400">
                   {dict.contact.formSubtitle}
                 </p>
               </div>
-              
-              <div className="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+
+              <div className="bg-neutral-800 p-8 rounded-xl shadow-sm border border-neutral-700">
                 <ContactForm
                   dict={{
                     name: dict.contact.formName,
@@ -81,6 +79,9 @@ export default function Home({ params }: { params: { locale: string } }) {
             </div>
           </Container>
         </section>
+
+      <VisitorsSection locale={locale} dict={dict} />
+        <SponsorsMarquee />
       </main>
       <Footer locale={locale} dict={dict} />
     </>

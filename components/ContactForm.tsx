@@ -105,15 +105,15 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              {dict.name} <span className="text-red-500">*</span>
+            <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
+              {dict.name} <span className="text-red-400">*</span>
             </label>
             <input
               type="text"
               id="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+              className="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-3 text-white placeholder-neutral-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors"
               placeholder={dict.name}
               required
               disabled={status === "submitting"}
@@ -121,15 +121,15 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              {dict.email} <span className="text-red-500">*</span>
+            <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+              {dict.email} <span className="text-red-400">*</span>
             </label>
             <input
               type="email"
               id="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+              className="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-3 text-white placeholder-neutral-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors"
               placeholder={dict.email}
               required
               disabled={status === "submitting"}
@@ -138,7 +138,7 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-neutral-300 mb-2">
             {dict.phone}
           </label>
           <input
@@ -146,22 +146,22 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
             id="phone"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            className="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-3 text-white placeholder-neutral-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors"
             placeholder={dict.phone}
             disabled={status === "submitting"}
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-            {dict.subject} <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="subject"
-            value={formData.subject}
-            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-            className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+          <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-2">
+              {dict.subject} <span className="text-red-400">*</span>
+            </label>
+            <input
+              type="text"
+              id="subject"
+              value={formData.subject}
+              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              className="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-3 text-white placeholder-neutral-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors"
             placeholder={dict.subject}
             required
             disabled={status === "submitting"}
@@ -169,15 +169,15 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-            {dict.message} <span className="text-red-500">*</span>
-          </label>
+          <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
+              {dict.message} <span className="text-red-400">*</span>
+            </label>
           <textarea
             id="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             rows={6}
-            className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors resize-none"
+            className="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-3 text-white placeholder-neutral-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors resize-none"
             placeholder={dict.message}
             required
             disabled={status === "submitting"}
@@ -199,7 +199,7 @@ export default function ContactForm({ dict, className = "" }: ContactFormProps) 
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="w-full bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
+          className="w-full bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
         >
           {status === "submitting" ? (
             <>

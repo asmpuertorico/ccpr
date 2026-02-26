@@ -221,7 +221,7 @@ export const es = {
     weekends: "Fines de semana: Con cita previa",
     downloadVCard: "Descargar Contacto",
     formTitle: "Envíanos un Mensaje",
-    formSubtitle: "Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.",
+    formSubtitle: "¿Planificando un evento o tienes preguntas? Contáctanos.",
     formName: "Nombre",
     formEmail: "Correo Electrónico",
     formPhone: "Teléfono",
