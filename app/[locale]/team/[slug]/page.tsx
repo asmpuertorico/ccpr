@@ -43,6 +43,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: rep.image ? [rep.image] : [],
     },
     alternates: { canonical: url },
+    appleWebApp: {
+      capable: true,
+      title: "PRCC Digital Card",
+      statusBarStyle: "black-translucent",
+    },
+    icons: {
+      apple: [{ url: "/images/ui/Logo-900-PRCC.png", sizes: "180x180" }],
+    },
   };
 }
 
