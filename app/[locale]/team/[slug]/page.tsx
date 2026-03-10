@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       statusBarStyle: "black-translucent",
     },
     icons: {
-      apple: [{ url: "/images/ui/Logo-900-PRCC.png", sizes: "180x180" }],
+      apple: [{ url: "/images/ui/pr-convention-logo.jpg", sizes: "180x180" }],
     },
   };
 }
