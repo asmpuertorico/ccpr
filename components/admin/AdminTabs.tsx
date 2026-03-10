@@ -1,17 +1,18 @@
 "use client";
 import React, { useState } from "react";
-import { BarChart3, Calendar, Settings, CalendarDays } from "lucide-react";
+import { BarChart3, Calendar, Settings, CalendarDays, Users } from "lucide-react";
 import Dashboard from "./Dashboard";
 import AdminPanel from "./AdminPanel";
 import CalendarView from "./CalendarView";
 import PerformanceMonitor from "./PerformanceMonitor";
+import SalesTeamManager from "./SalesTeamManager";
 import type { EventItem } from "@/lib/events";
 
 interface AdminTabsProps {
   initialEvents: EventItem[];
 }
 
-type TabId = 'dashboard' | 'events' | 'calendar' | 'settings';
+type TabId = 'dashboard' | 'events' | 'calendar' | 'settings' | 'salesTeam';
 
 interface Tab {
   id: TabId;
@@ -52,6 +53,12 @@ export default function AdminTabs({ initialEvents }: AdminTabsProps) {
       label: 'Calendar View',
       icon: <CalendarDays className="h-4 w-4" />,
       component: <CalendarView events={events} onEventEdit={handleEventEdit} onEventDelete={handleEventDelete} />
+    },
+    {
+      id: 'salesTeam',
+      label: 'Sales Team',
+      icon: <Users className="h-4 w-4" />,
+      component: <SalesTeamManager />
     },
     {
       id: 'settings',

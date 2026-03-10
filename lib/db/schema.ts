@@ -69,10 +69,31 @@ export const systemSettings = pgTable('system_settings', {
   updatedBy: text('updated_by').notNull(),
 });
 
+// Sales reps table for digital business card / QR profile feature
+export const salesReps = pgTable('sales_reps', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  slug: text('slug').notNull().unique(),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name').notNull(),
+  title: text('title').notNull(),
+  email: text('email').notNull(),
+  phone: text('phone'),
+  mobile: text('mobile'),
+  image: text('image'),
+  bio: text('bio'),
+  region: text('region'),
+  linkedin: text('linkedin'),
+  status: text('status').notNull().default('active'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
 export type Event = typeof events.$inferSelect;
 export type NewEvent = typeof events.$inferInsert;
 export type AuditLog = typeof auditLogs.$inferSelect;
 export type NewAuditLog = typeof auditLogs.$inferInsert;
 export type UserSession = typeof userSessions.$inferSelect;
 export type NewUserSession = typeof userSessions.$inferInsert;
+export type SalesRep = typeof salesReps.$inferSelect;
+export type NewSalesRep = typeof salesReps.$inferInsert;
 
