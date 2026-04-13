@@ -75,7 +75,7 @@ export default function TermsOfUsePage({ params }: { params: { locale: string } 
                   In addition, the trademarks, logos, and service marks displayed on this website (collectively the "Trademarks") are registered and common law trademarks of PRCC and/or third party service providers. Nothing contained on this website should be construed as granting, by implication, estoppel, or otherwise, any license or right to use any of the Trademarks without the written permission of PRCC and/or the appropriate third party service providers. PRCC actively protects its rights to the content of the PRCC website and its trademarks to the fullest extent of the law.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Requests regarding use of the content of this website for any purpose other than personal, non-commercial use should be directed to <a href="mailto:info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com" className="text-[#10a0c6] hover:underline">info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com</a>
+                  Requests regarding use of the content of this website for any purpose other than personal, non-commercial use should be directed to <a href="mailto:info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com" className="text-ocean hover:underline">info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com</a>
                 </p>
               </section>
 
@@ -248,8 +248,8 @@ export default function TermsOfUsePage({ params }: { params: { locale: string } 
                   If you have any questions or comments, we can be contacted by:
                 </p>
                 <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                  <li>Email: <a href="mailto:info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com" className="text-[#10a0c6] hover:underline">info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com</a></li>
-                  <li>Telephone: <a href="tel:+17876417722" className="text-[#10a0c6] hover:underline">(787) 641-7722</a></li>
+                  <li>Email: <a href="mailto:info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com" className="text-ocean hover:underline">info@centro-de-convenciones-4fa3fc.ingress-erytho.easywp.com</a></li>
+                  <li>Telephone: <a href="tel:+17876417722" className="text-ocean hover:underline">(787) 641-7722</a></li>
                   <li>Postal Mail: Puerto Rico Convention Bureau, Inc. on behalf of the Puerto Rico Convention Center, 100 Convention Boulevard, San Juan, Puerto Rico</li>
                 </ul>
               </section>

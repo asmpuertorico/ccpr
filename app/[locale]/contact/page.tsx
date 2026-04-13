@@ -32,7 +32,7 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/50 to-black/30"></div>
           </div>
           
           <Container className="relative z-10 text-center text-white">

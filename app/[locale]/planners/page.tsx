@@ -293,7 +293,7 @@ export default function EventPlannersPage({ params }: { params: { locale: string
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/50 to-black/30"></div>
           </div>
           
           <Container className="relative z-10 text-center text-white">
@@ -653,30 +653,30 @@ export default function EventPlannersPage({ params }: { params: { locale: string
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 bg-[#f78f1e] text-white relative overflow-hidden">
+        <section className="py-16 bg-[#f78f1e] text-ink relative overflow-hidden">
           {/* Orange background texture - same circular pattern as home page */}
           <div 
             className="absolute inset-0 opacity-10"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill-opacity='0.6'%3E%3Cpath fill='%23ffffff' d='M20 20c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm40 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3Cpath fill='%23ffffff' d='M0 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm40 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3C/g%3E%3C/svg%3E")`
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill-opacity='0.6'%3E%3Cpath fill='%23231f20' d='M20 20c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm40 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3Cpath fill='%23231f20' d='M0 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm40 40c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20z'/%3E%3C/g%3E%3C/svg%3E")`
             }}
           />
           <Container className="relative z-10">
             <div className="text-center">
               <h2 className="text-4xl font-bold mb-4">{dict.planners?.readyToPlantTitle || "Ready to Plan Your Event?"}</h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto text-orange-100">
+              <p className="text-xl mb-8 max-w-2xl mx-auto">
                 {dict.planners?.readyToPlanDesc || "Our experienced team is ready to help make your event a success. Get in touch today to discuss your requirements."}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <div className="flex items-center gap-3">
-                  <Phone className="w-6 h-6 text-orange-200" />
+                  <Phone className="w-6 h-6" />
                   <span className="text-lg">(787) 641-7722</span>
                 </div>
                 
                 <button 
                   onClick={openChat}
-                  className="bg-white text-[#f78f1e] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
+                  className="bg-ink text-white px-8 py-3 rounded-lg font-semibold hover:bg-neutral-800 transition-colors duration-200">
                   Get a Quote
                 </button>
               </div>

@@ -45,7 +45,7 @@ export default function TeamMemberCard({
             href={`mailto:${email}`}
             className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
           >
-            <Mail className="w-5 h-5 text-gray-400 group-hover:text-blue-600" />
+            <Mail className="w-5 h-5 text-gray-500 group-hover:text-blue-600" />
             <span className="text-sm break-all">{email}</span>
           </a>
           
@@ -54,7 +54,7 @@ export default function TeamMemberCard({
               href={`tel:${phone}`}
               className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
             >
-              <Phone className="w-5 h-5 text-gray-400 group-hover:text-blue-600" />
+              <Phone className="w-5 h-5 text-gray-500 group-hover:text-blue-600" />
               <span className="text-sm">{phone}</span>
             </a>
           )}
