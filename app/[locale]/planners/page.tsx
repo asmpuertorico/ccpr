@@ -201,13 +201,13 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       title: dict.planners?.sustainabilityGuide || "Sustainability Guide",
       description: dict.planners?.sustainabilityGuideDesc || "Environmental practices and sustainability",
       filename: "PRCC-Sustainability-Guide_compressed.pdf",
-      size: "1.0MB"
+      size: "887KB"
     },
     {
       title: dict.planners?.kitchenEquipment || "General & Kitchen Equipment",
       description: dict.planners?.kitchenEquipmentDesc || "General kitchen and equipment information",
       filename: "general kitchen and equipment.pdf",
-      size: "5.1MB"
+      size: "11.3MB"
     },
     {
       title: dict.planners?.graduationPackages || "Graduation Packages",
@@ -225,7 +225,7 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       title: dict.planners?.floorPlans || "Floor Plans", 
       description: dict.planners?.floorPlansDesc || "Detailed floor plans and layouts",
       filename: "BOOKLET-VRS-2024.pdf",
-      size: "4.7MB"
+      size: "11.6MB"
     },
     {
       title: dict.planners?.promMenu || "Prom Menu",
