@@ -182,8 +182,8 @@ export default function EventPlannersPage({ params }: { params: { locale: string
     {
       title: dict.planners?.eventPlanningGuide || "Event Planning Guide",
       description: dict.planners?.eventPlanningGuideDesc || "Comprehensive guide for planning your event",
-      filename: "Event-Planning-Guide-January-2026.pdf",
-      size: "2.5MB"
+      filename: "Event-Planning-Guide-June-2026.pdf",
+      size: "2.6MB"
     },
     {
       title: dict.planners?.capacitySheet || "Capacity Sheet",
@@ -236,8 +236,8 @@ export default function EventPlannersPage({ params }: { params: { locale: string
     {
       title: dict.planners?.emergencyResponsePlan || "Emergency Response Plan",
       description: dict.planners?.emergencyResponsePlanDesc || "Emergency procedures and safety protocols",
-      filename: "Emergency-Response-Plan-PRCC-REV-2025.pdf",
-      size: "2.9MB"
+      filename: "Emergency-Response-Plan-PRCC-Revised-May-2026.pdf",
+      size: "3.0MB"
     },
     {
       title: dict.planners?.internetServicesForm || "Internet Services Form",
