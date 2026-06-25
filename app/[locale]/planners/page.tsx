@@ -216,10 +216,10 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       size: "718KB"
     },
     {
-      title: dict.planners?.christmasOffers || "Christmas Offers",
-      description: dict.planners?.christmasOffersDesc || "Holiday event packages and offers",
-      filename: "Christmas-Offers.pdf",
-      size: "1.0MB"
+      title: dict.planners?.christmasOffers || "Holiday Menu",
+      description: dict.planners?.christmasOffersDesc || "Holiday event menu and packages",
+      filename: "Holiday-Menu.pdf",
+      size: "2.7MB"
     },
     {
       title: dict.planners?.floorPlans || "Floor Plans", 
@@ -228,10 +228,16 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       size: "11.6MB"
     },
     {
-      title: dict.planners?.promMenu || "Prom Menu",
-      description: dict.planners?.promMenuDesc || "Special menu for prom events",
-      filename: "PROM-MENU-CCPR-4.pdf",
-      size: "1.0MB"
+      title: dict.planners?.promMenuUpTo200 || "Senior Prom Menu — Up to 200 Guests",
+      description: dict.planners?.promMenuUpTo200Desc || "Prom menu for groups of 200 or fewer",
+      filename: "Senior-Prom-Menu-up-to-200ppl.pdf",
+      size: "3.7MB"
+    },
+    {
+      title: dict.planners?.promMenu300Plus || "Senior Prom Menu — 300+ Guests",
+      description: dict.planners?.promMenu300PlusDesc || "Prom menu for groups of 300 or more",
+      filename: "Senior-Prom-Menu-300ppl-or-more.pdf",
+      size: "1.4MB"
     },
     {
       title: dict.planners?.emergencyResponsePlan || "Emergency Response Plan",
