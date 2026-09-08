@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { getStorage } from "@/lib/storage";
+import { getCachedEvents, EVENTS_TAG } from "@/lib/events-cache";
 import { isEventItem } from "@/lib/events";
 import { getCurrentSession } from "@/lib/jwt";
 import { validateCSRFFromRequest } from "@/lib/csrf-server";
 import { validateEventData } from "@/lib/validation";
 
 export async function GET() {
-  // Always fetch fresh data to avoid stale cache issues
-  const events = await getStorage().listFresh();
+  // Served from the tagged data cache, so this costs a database round trip only
+  // after an admin write or the cache expiry - not once per request.
+  const events = await getCachedEvents();
   return NextResponse.json({ 
     events,
     timestamp: Date.now() // Add timestamp to help with cache busting
@@ -46,8 +49,13 @@ export async function POST(req: NextRequest) {
       }, { status: 400 });
     }
 
+    // create() persists the whole in-memory list back to Postgres, so pull the
+    // current rows first - the read path no longer refreshes them for us.
+    await getStorage().listFresh();
+
     // Create event with sanitized data
     const created = await getStorage().create(validation.sanitizedData);
+    revalidateTag(EVENTS_TAG);
     return NextResponse.json(created, { status: 201 });
   } catch (error) {
     console.error('Event creation error:', error);
@@ -99,6 +107,7 @@ export async function PUT(req: NextRequest) {
     }
     
     await getStorage().replaceAll(validatedEvents);
+    revalidateTag(EVENTS_TAG);
     return NextResponse.json({ ok: true, count: validatedEvents.length });
   } catch (error) {
     console.error('Bulk event update error:', error);

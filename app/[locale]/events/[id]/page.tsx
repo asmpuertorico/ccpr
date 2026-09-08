@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getStorage } from "@/lib/storage";
+import { getCachedEvent, getCachedEvents } from "@/lib/events-cache";
 import { formatEventDateRange } from "@/lib/events";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -11,14 +11,16 @@ import { en } from "@/lib/i18n/dictionaries/en";
 import { es } from "@/lib/i18n/dictionaries/es";
 import { supportedLocales, type SupportedLocale } from "@/lib/i18n/locales";
 
-export const dynamic = "force-dynamic";
+// Was force-dynamic, which meant a Postgres query per page view. Now rendered
+// from the tagged events cache and rebuilt by revalidateTag("events") on edit.
+export const revalidate = 21600; // 6 hours; must be a literal for Next to read it
 export const dynamicParams = true;
 
 // Generate static params for known events at build time (optional, but helps with route recognition)
 export async function generateStaticParams() {
   try {
     // Try to fetch events at build time to pre-generate routes
-    const events = await getStorage().listFresh();
+    const events = await getCachedEvents();
     const params: Array<{ id: string; locale: string }> = [];
     
     // Generate params for all locales and events
@@ -46,7 +48,7 @@ export default async function EventDetail({
   if (!supportedLocales.includes(locale)) notFound();
   const dict = locale === "es" ? es : en;
 
-  const item = await getStorage().get(id);
+  const item = await getCachedEvent(id);
   if (!item) notFound();
   
   return (

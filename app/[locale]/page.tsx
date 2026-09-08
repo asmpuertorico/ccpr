@@ -13,11 +13,17 @@ import VisitorsSection from "@/components/VisitorsSection";
 import PartnersSection from "@/components/PartnersSection";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
+import { getUpcomingEvents } from "@/lib/events-cache";
 
-export default function Home({ params }: { params: { locale: string } }) {
+// Statically rendered and refreshed on this schedule as a safety net; admin
+// writes call revalidateTag("events"), which rebuilds this page immediately.
+export const revalidate = 21600; // 6 hours; must be a literal for Next to read it
+
+export default async function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale as SupportedLocale;
   if (!supportedLocales.includes(locale)) notFound();
   const dict = locale === "es" ? es : en;
+  const events = await getUpcomingEvents();
   return (
     <>
       <Navbar locale={locale} dict={dict} />
@@ -38,7 +44,7 @@ export default function Home({ params }: { params: { locale: string } }) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/ui/NEXT EVENTS LOGO CCPR.png" alt={dict.events.nextEvents} className="h-16 w-auto" />
           </div>
-          <EventsCarousel locale={locale} dict={dict} />
+          <EventsCarousel locale={locale} dict={dict} initialEvents={events} />
                   </div>
       </section>
       <PartnersSection locale={locale} dict={dict} />
@@ -58,6 +64,7 @@ export default function Home({ params }: { params: { locale: string } }) {
 
               <div className="bg-neutral-800 p-8 rounded-xl shadow-sm border border-neutral-700">
                 <ContactForm
+                  tone="dark"
                   dict={{
                     name: dict.contact.formName,
                     email: dict.contact.formEmail,

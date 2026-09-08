@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllEventsWithFullData } from "@/lib/storage";
+import { getCachedEventsWithFullData } from "@/lib/events-cache";
 import { getEventDateTime, isPastEvent, formatEventDate, formatEventTime, formatEventDateRange } from "@/lib/events";
 
 // Enhanced event type for LLM consumption
@@ -117,7 +118,8 @@ export async function GET(req: NextRequest) {
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
     
     // Fetch all events with full data
-    const events = await getAllEventsWithFullData();
+    // Tagged data cache: a database round trip only after an edit or expiry.
+    const events = await getCachedEventsWithFullData();
     
     // Transform events for LLM consumption
     const llmEvents = events.map(event => transformEventForLLM(event, baseUrl));

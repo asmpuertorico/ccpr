@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 
 interface HealthCheck {
@@ -8,7 +8,7 @@ interface HealthCheck {
   environment: string;
   checks: {
     database: {
-      status: 'up' | 'down';
+      status: 'up' | 'down' | 'skipped';
       responseTime?: number;
       error?: string;
     };
@@ -34,7 +34,11 @@ interface HealthCheck {
   };
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  // The database probe is opt-in. An uptime monitor pinging this every minute
+  // otherwise keeps the Neon compute from ever scaling to zero, which is billed
+  // by the hour. Pass ?deep=1 when you actually want connectivity verified.
+  const probeDatabase = req.nextUrl.searchParams.get('deep') === '1';
   const startTime = Date.now();
   const healthCheck: HealthCheck = {
     status: 'healthy',
@@ -52,9 +56,13 @@ export async function GET() {
   // Check database connection
   try {
     const dbStart = Date.now();
-    
-    // Simple query to test database connectivity
-    if (process.env.DATABASE_URL) {
+
+    if (!probeDatabase) {
+      healthCheck.checks.database = {
+        status: 'skipped',
+        error: 'Database probe skipped; call with ?deep=1 to run it'
+      };
+    } else if (process.env.DATABASE_URL) {
       await db.execute('SELECT 1');
       healthCheck.checks.database = {
         status: 'up',

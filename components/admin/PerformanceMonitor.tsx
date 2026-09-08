@@ -10,7 +10,7 @@ interface PerformanceMetrics {
     percentage: number;
   };
   database: {
-    status: 'up' | 'down';
+    status: 'up' | 'down' | 'unknown';
     responseTime?: number;
   };
   storage?: {
@@ -37,24 +37,30 @@ export default function PerformanceMonitor() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchMetrics = async () => {
+  // deep=true actually queries Postgres. Shallow polls skip it so an open
+  // dashboard tab doesn't hold the Neon compute awake all day.
+  const fetchMetrics = async (deep: boolean) => {
     try {
-      const response = await fetch('/api/health');
+      const response = await fetch(deep ? '/api/health?deep=1' : '/api/health');
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
       const data = await response.json();
       
-      setMetrics({
+      setMetrics((prev) => ({
         responseTime: data.responseTime || 0,
         memoryUsage: data.checks.memory || { used: 0, total: 0, percentage: 0 },
-        database: data.checks.database || { status: 'down' },
+        // A shallow poll reports 'skipped'; keep the last real reading instead.
+        database:
+          data.checks.database?.status === 'skipped'
+            ? prev?.database ?? { status: 'unknown' as const }
+            : data.checks.database || { status: 'down' as const },
         storage: data.checks.storage || { status: 'down' },
         uptime: data.checks.uptime || 0,
         status: data.status || 'unhealthy',
         lastUpdated: data.timestamp || new Date().toISOString()
-      });
+      }));
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch metrics');
@@ -64,11 +70,12 @@ export default function PerformanceMonitor() {
   };
 
   useEffect(() => {
-    fetchMetrics();
-    
-    // Update metrics every 30 seconds
-    const interval = setInterval(fetchMetrics, 30000);
-    
+    // Real connectivity check once, when the dashboard opens.
+    fetchMetrics(true);
+
+    // Then refresh memory/storage every 5 minutes without touching Postgres.
+    const interval = setInterval(() => fetchMetrics(false), 5 * 60 * 1000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -203,10 +210,14 @@ export default function PerformanceMonitor() {
           </div>
           <div className="flex items-center gap-2">
             <div className={`w-3 h-3 rounded-full ${
-              metrics.database.status === 'up' ? 'bg-green-500' : 'bg-red-500'
+              metrics.database.status === 'up' ? 'bg-green-500'
+                : metrics.database.status === 'unknown' ? 'bg-gray-400'
+                : 'bg-red-500'
             }`} />
             <span className="text-sm font-medium">
-              {metrics.database.status === 'up' ? 'Connected' : 'Disconnected'}
+              {metrics.database.status === 'up' ? 'Connected'
+                : metrics.database.status === 'unknown' ? 'Not checked'
+                : 'Disconnected'}
             </span>
           </div>
           {metrics.database.responseTime && (
@@ -343,7 +354,7 @@ export default function PerformanceMonitor() {
           Last updated: {new Date(metrics.lastUpdated).toLocaleTimeString()}
         </div>
         <button
-          onClick={fetchMetrics}
+          onClick={() => fetchMetrics(true)}
           className="text-indigo-600 hover:text-indigo-800 font-medium"
         >
           Refresh
