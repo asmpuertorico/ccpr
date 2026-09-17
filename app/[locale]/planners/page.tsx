@@ -210,12 +210,6 @@ export default function EventPlannersPage({ params }: { params: { locale: string
       size: "11.3MB"
     },
     {
-      title: dict.planners?.graduationPackages || "Graduation Packages",
-      description: dict.planners?.graduationPackagesDesc || "Special packages for graduation events",
-      filename: "GRADUATION-PACKAGES.pdf",
-      size: "718KB"
-    },
-    {
       title: dict.planners?.christmasOffers || "Holiday Menu",
       description: dict.planners?.christmasOffersDesc || "Holiday event menu and packages",
       filename: "Holiday-Menu.pdf",

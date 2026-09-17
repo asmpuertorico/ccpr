@@ -172,8 +172,6 @@ export const es = {
     kitchenEquipmentDesc: "Equipos de cocina y generales disponibles",
     cateringMenu: "Menú de Catering",
     cateringMenuDesc: "Eventos privados y opciones de catering",
-    graduationPackages: "Paquetes de Graduación",
-    graduationPackagesDesc: "Paquetes especiales para eventos de graduación",
     christmasOffers: "Menú de Temporada",
     christmasOffersDesc: "Menú y paquetes para eventos de temporada navideña",
     promMenuUpTo200: "Menú de Graduación — Hasta 200 Personas",
