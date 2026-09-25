@@ -182,7 +182,7 @@ export default function EventPlannersPage({ params }: { params: { locale: string
     {
       title: dict.planners?.eventPlanningGuide || "Event Planning Guide",
       description: dict.planners?.eventPlanningGuideDesc || "Comprehensive guide for planning your event",
-      filename: "Event-Planning-Guide-June-2026.pdf",
+      filename: "Event-Planning-Guide-August-2026.pdf",
       size: "2.6MB"
     },
     {
